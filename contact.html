@@ -3,42 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تماس با ما - آموزشگاه ما</title>
-    <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
+    <title>تماس با ما</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>آموزشگاه ما</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html">خانه</a></li>
-                    <li><a href="about.html">درباره ما</a></li>
-                    <li><a href="courses.html">دوره‌ها</a></li>
-                    <li><a href="gallery.html">گالری</a></li>
-                    <li><a href="contact.html">تماس با ما</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <div class="container">
+        <h1>تماس با ما</h1>
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="نام شما" required>
+            <input type="email" id="email" placeholder="ایمیل شما" required>
+            <textarea id="message" placeholder="پیام شما" required></textarea>
+            <button type="submit">ارسال پیام</button>
+        </form>
+    </div>
 
-    <section id="contact">
-        <div class="container">
-            <h2>تماس با ما</h2>
-            <form action="mailto:erisrastegar5@gmail.com" method="post" enctype="text/plain">
-                <input type="text" name="name" placeholder="نام شما" required>
-                <input type="email" name="email" placeholder="ایمیل شما" required>
-                <textarea name="message" placeholder="پیام شما" required></textarea>
-                <button type="submit">ارسال</button>
-            </form>
-        </div>
-    </section>
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 آموزشگاه ما</p>
-        </div>
-    </footer>
+            // گرفتن داده‌ها از فرم
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var message = document.getElementById("message").value;
+
+            // ربات تلگرام اطلاعات رو ارسال می‌کنه
+            var token = "7878568523:AAFGF9kxp2Jb6jR3OgF452G9X5S8-gdrTJo";
+            var chatId = "5619969053";
+            var text = "اطلاعات تماس جدید:\n\n" +
+                       "نام: " + name + "\n" +
+                       "ایمیل: " + email + "\n" +
+                       "پیام: " + message;
+
+            var url = "https://api.telegram.org/bot" + token + "/sendMessage?chat_id=" + chatId + "&text=" + encodeURIComponent(text);
+
+            // ارسال درخواست به تلگرام
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ok) {
+                        alert("پیام شما ارسال شد.");
+                        document.getElementById("contactForm").reset(); // پاک کردن فرم بعد از ارسال
+                    } else {
+                        alert("خطا در ارسال پیام. لطفا دوباره تلاش کنید.");
+                    }
+                })
+                .catch(error => {
+                    alert("خطا در اتصال به سرور.");
+                });
+        });
+    </script>
 </body>
 </html>
