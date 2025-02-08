@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تماس با ما</title>
+    <title>تماس با ما - آموزشگاه ما</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -20,72 +22,79 @@
             background-color: white;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        h1 {
-            text-align: center;
-        }
-        input, textarea, button {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        button {
+        header, footer {
             background-color: #4CAF50;
             color: white;
-            border: none;
-            cursor: pointer;
+            padding: 10px 0;
         }
-        button:hover {
-            background-color: #45a049;
+        header h1, footer p {
+            text-align: center;
+            margin: 0;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        #contact {
+            text-align: center;
+            padding: 50px 0;
+        }
+        .whatsapp-button {
+            background-color: #25d366;
+            color: white;
+            padding: 15px 30px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .whatsapp-button:hover {
+            background-color: #128c7e;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>تماس با ما</h1>
-        <form id="contactForm">
-            <input type="text" id="name" placeholder="نام شما" required>
-            <input type="email" id="email" placeholder="ایمیل شما" required>
-            <textarea id="message" placeholder="پیام شما" required></textarea>
-            <button type="submit">ارسال پیام</button>
-        </form>
-    </div>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <h1>آموزشگاه ما</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">خانه</a></li>
+                    <li><a href="about.html">درباره ما</a></li>
+                    <li><a href="courses.html">دوره‌ها</a></li>
+                    <li><a href="gallery.html">گالری</a></li>
+                    <li><a href="contact.html">تماس با ما</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <script>
-        document.getElementById("contactForm").addEventListener("submit", function(event) {
-            event.preventDefault();
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>تماس با ما</h2>
+            <p>برای مشاوره و اطلاعات بیشتر، می‌توانید با ما از طریق واتساپ تماس بگیرید.</p>
+            <!-- WhatsApp Button -->
+            <a href="https://wa.me/+380730117303" class="whatsapp-button" target="_blank">تماس در واتساپ</a>
+        </div>
+    </section>
 
-            // گرفتن داده‌ها از فرم
-            var name = document.getElementById("name").value;
-            var email = document.getElementById("email").value;
-            var message = document.getElementById("message").value;
-
-            // ربات تلگرام اطلاعات رو ارسال می‌کنه
-            var token = "7878568523:AAFGF9kxp2Jb6jR3OgF452G9X5S8-gdrTJo";
-            var chatId = "5619969053";
-            var text = "اطلاعات تماس جدید:\n\n" +
-                       "نام: " + name + "\n" +
-                       "ایمیل: " + email + "\n" +
-                       "پیام: " + message;
-
-            var url = "https://api.telegram.org/bot" + token + "/sendMessage?chat_id=" + chatId + "&text=" + encodeURIComponent(text);
-
-            // ارسال درخواست به تلگرام
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.ok) {
-                        alert("پیام شما ارسال شد.");
-                        document.getElementById("contactForm").reset(); // پاک کردن فرم بعد از ارسال
-                    } else {
-                        alert("خطا در ارسال پیام. لطفا دوباره تلاش کنید.");
-                    }
-                })
-                .catch(error => {
-                    alert("خطا در اتصال به سرور.");
-                });
-        });
-    </script>
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 آموزشگاه ما</p>
+        </div>
+    </footer>
 </body>
 </html>
