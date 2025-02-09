@@ -6,22 +6,22 @@ body {
     justify-content: center;
     height: 100vh; /* کل صفحه را پر کند */
     margin: 0;
-    background-color: #fff; /* پس‌زمینه سفید برای تم سیاه و سفید */
-    color: #333; /* رنگ متن تیره برای تم سیاه و سفید */
-    font-family: Arial, sans-serif; /* تنظیم فونت برای سایت */
+    background-color: #000; /* پس‌زمینه مشکی برای تم سیاه و سفید */
+    color: #fff; /* رنگ متن سفید برای تم سیاه و سفید */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* فونت مدرن */
 }
 
 /* تنظیم هدر */
 header {
     text-align: center;
-    color: #333; /* رنگ متن هدر */
+    margin-bottom: 30px; /* فاصله بیشتر از منو */
 }
 
 /* تنظیم لوگو */
 .logo {
-    width: 60px; /* کاهش اندازه لوگو */
+    width: 50px; /* کاهش اندازه لوگو */
     height: auto;
-    margin-bottom: 15px; /* فاصله کمتر بین لوگو و منو */
+    margin-bottom: 20px; /* فاصله کمی بین لوگو و منو */
 }
 
 /* تنظیم منوی عمودی */
@@ -31,33 +31,33 @@ nav ul {
     display: flex;
     flex-direction: column; /* نمایش دکمه‌ها زیر هم */
     align-items: center; /* وسط‌چین کردن آیتم‌ها */
-    gap: 8px; /* فاصله بین دکمه‌ها */
+    gap: 12px; /* فاصله بین دکمه‌ها */
 }
 
 nav ul li {
-    width: 180px; /* کاهش عرض دکمه‌ها */
+    width: 180px; /* عرض ثابت برای دکمه‌ها */
     text-align: center;
 }
 
 nav ul li a {
     display: block;
     text-decoration: none;
-    color: #333; /* رنگ متن دکمه‌ها */
-    font-size: 16px; /* کوچک‌تر کردن اندازه فونت */
-    font-weight: bold;
-    padding: 10px; /* کاهش پدینگ دکمه‌ها */
-    background-color: #f1e6c9; /* رنگ کرم */
-    color: #333;
-    border-radius: 8px; /* حاشیه گرد برای دکمه */
-    border: 2px solid #f1e6c9; /* مرز کرم */
-    transition: 0.3s;
+    color: #fff; /* رنگ متن دکمه‌ها سفید */
+    font-size: 16px; /* اندازه فونت دکمه‌ها */
+    font-weight: 600; /* وزن فونت سبک‌تر */
+    padding: 12px 20px; /* پدینگ مناسب برای دکمه‌ها */
+    background-color: transparent; /* پس‌زمینه دکمه‌ها شفاف */
+    border: 2px solid #fff; /* مرز سفید رنگ */
+    border-radius: 25px; /* حاشیه گرد برای دکمه */
+    transition: all 0.3s ease; /* افکت‌های تغییرات برای هاور */
     width: 100%;
-    box-sizing: border-box; /* اطمینان از اینکه اندازه دکمه درست باشد */
+    text-transform: uppercase; /* تبدیل متن به حروف بزرگ */
+    letter-spacing: 1px; /* فاصله بیشتر بین حروف */
 }
 
 /* هاور دکمه‌ها */
 nav ul li a:hover {
-    background-color: #e1d2a2; /* تغییر رنگ به کرم تیره‌تر هنگام هاور */
-    border-color: #e1d2a2; /* تغییر رنگ مرز هنگام هاور */
-    color: #333; /* رنگ متن هنگام هاور */
+    background-color: #fff; /* پس‌زمینه سفید هنگام هاور */
+    color: #000; /* تغییر رنگ متن به مشکی هنگام هاور */
+    border-color: #fff; /* مرز سفید رنگ باقی می‌ماند */
 }
