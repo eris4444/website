@@ -13,25 +13,13 @@
     <img src="https://eris4444.github.io/test/assets/logo.png" alt="Logo">
 </div>
 
-<!-- منوی سه نقطه‌ای -->
-<div class="navbar">
-    <div class="logo">
-        <img src="https://eris4444.github.io/test/assets/logo.png" alt="Logo">
-    </div>
-    <div class="more-options" id="more-options">
-        <div class="dots"></div>
-        <div class="dots"></div>
-        <div class="dots"></div>
-    </div>
-    <nav class="nav-links" id="nav-links">
-        <ul>
-            <li><a href="index.html">خانه</a></li>
-            <li><a href="about.html">درباره ما</a></li>
-            <li><a href="services.html">دوره‌ها</a></li>
-            <li><a href="gallery.html">گالری</a></li>
-            <li><a href="contact.html">تماس با ما</a></li>
-        </ul>
-    </nav>
+<!-- منو -->
+<div class="menu">
+    <a href="index.html" class="menu-item">خانه</a>
+    <a href="about.html" class="menu-item">درباره ما</a>
+    <a href="services.html" class="menu-item active">دوره‌ها</a>
+    <a href="gallery.html" class="menu-item">گالری</a>
+    <a href="contact.html" class="menu-item">تماس با ما</a>
 </div>
 
 <!-- محتوای صفحه دوره‌ها -->
@@ -39,16 +27,6 @@
     <h1>دوره‌ها</h1>
     <p>در اینجا می‌توانید دوره‌های مختلف ما را مشاهده کنید.</p>
 </div>
-
-<script>
-    // اسکریپت برای منوی سه نقطه‌ای
-    const moreOptions = document.getElementById('more-options');
-    const navLinks = document.getElementById('nav-links');
-
-    moreOptions.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-    });
-</script>
 
 </body>
 </html>

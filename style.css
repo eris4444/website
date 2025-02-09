@@ -1,112 +1,72 @@
 /* تنظیم کلی صفحه */
 body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    color: #000;
     margin: 0;
     padding: 0;
-    background-color: #fff; /* پس‌زمینه سفید */
-    color: #fff; /* رنگ متن سفید */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* لوگو در بالای صفحه */
-.header-logo img {
-    width: 60px;
-    height: auto;
-    position: fixed;
-    top: 20px;
-    left: 20px;
-}
-
-/* تنظیم نوار منو */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    position: relative;
-    background-color: #000; /* نوار منو مشکی */
-}
-
-/* لوگو */
-.logo img {
-    width: 50px;
-    height: auto;
-}
-
-/* منوی سه نقطه‌ای */
-.more-options {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    cursor: pointer;
-    width: 20px;
-    height: 20px;
-}
-
-.dots {
-    width: 5px;
-    height: 5px;
-    background-color: #fff;
-    border-radius: 50%;
-    margin: 2px 0;
-}
-
-/* منو لینک‌ها */
-.nav-links {
-    display: none;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background-color: #000;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.nav-links.active {
-    display: block;
-}
-
-.nav-links ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.nav-links ul li {
+.header-logo {
     text-align: center;
-    border-bottom: 2px solid #fff;
+    margin-top: 20px;
 }
 
-.nav-links ul li a {
-    display: block;
-    padding: 12px;
+/* منو */
+.menu {
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+    padding: 10px 0;
+}
+
+.menu-item {
     text-decoration: none;
-    color: #fff;
-    font-size: 18px;
+    color: white;
+    padding: 12px 20px;
+    margin: 0 15px;
+    font-size: 16px;
     font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
-.nav-links ul li a:hover {
-    background-color: #fff;
-    color: #000;
+.menu-item:hover {
+    background-color: #555;
+}
+
+.menu-item.active {
+    background-color: #007bff;
+}
+
+/* محتوای صفحات */
+.content {
+    text-align: center;
+    margin: 50px;
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
 }
 
 /* دکمه واتساپ */
-.whatsapp-button {
-    background-color: #25D366;
-    color: white;
+.whatsapp-btn {
+    display: inline-block;
     padding: 15px 30px;
     font-size: 18px;
-    border-radius: 5px;
-    text-align: center;
-    cursor: pointer;
-    border: none;
+    background-color: #25d366;
+    color: white;
     text-decoration: none;
-    display: inline-block;
+    border-radius: 5px;
+    margin-top: 20px;
 }
 
-.whatsapp-button:hover {
-    background-color: #128C7E;
+.whatsapp-btn:hover {
+    background-color: #128c7e;
 }
