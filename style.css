@@ -1,72 +1,123 @@
-/* تنظیم کلی صفحه */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #fff;
-    color: #000;
+/* تنظیمات کلی */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-/* لوگو در بالای صفحه */
-.header-logo {
-    text-align: center;
-    margin-top: 20px;
-}
-
-/* منو */
-.menu {
-    display: flex;
-    justify-content: center;
-    background-color: #333;
-    padding: 10px 0;
-}
-
-.menu-item {
-    text-decoration: none;
-    color: white;
-    padding: 12px 20px;
-    margin: 0 15px;
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fff;
+    color: #333;
+    line-height: 1.6;
     font-size: 16px;
+}
+
+/* استایل عمومی برای همه صفحات */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+}
+
+header .logo {
+    width: 50px;
+}
+
+header nav {
+    display: flex;
+    gap: 20px;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
     font-weight: bold;
     text-transform: uppercase;
 }
 
-.menu-item:hover {
-    background-color: #555;
+header nav a:hover {
+    color: #007bff;
 }
 
-.menu-item.active {
-    background-color: #007bff;
+/* تنظیمات محتوای اصلی */
+main {
+    padding: 40px 0;
+    background-color: #f4f4f4;
 }
 
-/* محتوای صفحات */
-.content {
-    text-align: center;
-    margin: 50px;
-}
-
-h1 {
+h1, h2 {
+    color: #333;
     font-size: 32px;
     margin-bottom: 20px;
 }
 
 p {
     font-size: 18px;
-    line-height: 1.6;
+    margin-bottom: 20px;
 }
 
-/* دکمه واتساپ */
-.whatsapp-btn {
-    display: inline-block;
+/* طراحی دکمه‌ها */
+button, .whatsapp-btn {
     padding: 15px 30px;
     font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+.whatsapp-btn {
     background-color: #25d366;
     color: white;
     text-decoration: none;
-    border-radius: 5px;
-    margin-top: 20px;
 }
 
 .whatsapp-btn:hover {
     background-color: #128c7e;
+}
+
+/* طراحی فوتر */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+}
+
+footer p {
+    font-size: 14px;
+}
+
+/* ریسپانسیو */
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header nav {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
 }
