@@ -11,6 +11,8 @@ body {
     color: #333;
     line-height: 1.6;
     font-size: 16px;
+    direction: rtl; /* راست‌چین کردن متن */
+    text-align: right; /* راست‌چین کردن متن */
 }
 
 /* استایل عمومی برای همه صفحات */
@@ -88,73 +90,24 @@ p {
     border: 2px solid #007bff;
     border-radius: 50px;
     text-align: center;
-    width: auto;
     font-weight: bold;
-    transition: all 0.3s ease;
+    transition: all 0.3s;
 }
 
 .btn-key:hover {
     background-color: #0056b3;
     border-color: #0056b3;
-    transform: scale(1.1);
 }
 
 /* گالری */
 .gallery {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-}
-
-.gallery-item {
-    width: 100%;
-    max-width: 300px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .gallery-item img {
     width: 100%;
     height: auto;
-    display: block;
-}
-
-/* طراحی فوتر */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #333;
-    color: #fff;
-}
-
-footer p {
-    font-size: 14px;
-}
-
-/* ریسپانسیو */
-@media screen and (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    header nav {
-        flex-direction: column;
-        gap: 10px;
-        align-items: flex-start;
-    }
-
-    .container {
-        padding: 10px;
-    }
-
-    .gallery {
-        justify-content: center;
-    }
-
-    .gallery-item {
-        max-width: 100%;
-    }
+    border-radius: 8px;
 }
