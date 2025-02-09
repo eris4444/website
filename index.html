@@ -8,15 +8,20 @@
 </head>
 <body>
 
-<!-- منوی همبرگری -->
+<!-- لوگو در بالای صفحه -->
+<div class="header-logo">
+    <img src="https://eris4444.github.io/test/assets/logo.png" alt="Logo">
+</div>
+
+<!-- منوی سه نقطه‌ای -->
 <div class="navbar">
     <div class="logo">
-        <img src="logo.png" alt="Logo">
+        <img src="https://eris4444.github.io/test/assets/logo.png" alt="Logo">
     </div>
-    <div class="menu-icon" id="menu-icon">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
+    <div class="more-options" id="more-options">
+        <div class="dots"></div>
+        <div class="dots"></div>
+        <div class="dots"></div>
     </div>
     <nav class="nav-links" id="nav-links">
         <ul>
@@ -29,18 +34,18 @@
     </nav>
 </div>
 
-<!-- محتوای صفحه خانه -->
+<!-- محتوای صفحه -->
 <div class="content">
-    <h1>به سایت خوش آمدید!</h1>
-    <p>این صفحه خانه است. از منوی همبرگری برای دسترسی به سایر صفحات استفاده کنید.</p>
+    <h1>خانه</h1>
+    <p>به سایت ما خوش آمدید!</p>
 </div>
 
 <script>
-    // اسکریپت برای منوی همبرگری
-    const menuIcon = document.getElementById('menu-icon');
+    // اسکریپت برای منوی سه نقطه‌ای
+    const moreOptions = document.getElementById('more-options');
     const navLinks = document.getElementById('nav-links');
 
-    menuIcon.addEventListener('click', () => {
+    moreOptions.addEventListener('click', () => {
         navLinks.classList.toggle('active');
     });
 </script>
