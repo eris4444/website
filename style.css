@@ -28,13 +28,22 @@ header {
     padding: 20px;
     background-color: #333;
     color: #fff;
+    position: relative;
+}
+
+header .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;  /* سایز لوگو */
 }
 
 header .logo img {
-    width: 30px;  /* سایز کوچک شده لوگو */
+    width: 40px;  /* سایز کوچک لوگو */
     height: auto;
 }
 
+/* منو */
 header nav {
     display: flex;
     gap: 20px;
@@ -145,4 +154,7 @@ footer p {
         justify-content: center;
     }
 
-    .gallery
+    .gallery-item {
+        max-width: 100%;
+    }
+}
