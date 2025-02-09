@@ -30,8 +30,9 @@ header {
     color: #fff;
 }
 
-header .logo {
-    width: 50px;
+header .logo img {
+    width: 30px;  /* سایز کوچک شده لوگو */
+    height: auto;
 }
 
 header nav {
@@ -46,7 +47,7 @@ header nav a {
     text-transform: uppercase;
 }
 
-header nav a:hover {
+header nav a:hover, header nav a.active {
     color: #007bff;
 }
 
@@ -67,12 +68,33 @@ p {
     margin-bottom: 20px;
 }
 
-/* بخش گالری */
+/* طراحی کلید */
+.btn-key {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border: 2px solid #007bff;
+    border-radius: 50px;
+    text-align: center;
+    width: auto;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-key:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    transform: scale(1.1);
+}
+
+/* گالری */
 .gallery {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    margin-top: 20px;
 }
 
 .gallery-item {
@@ -123,7 +145,4 @@ footer p {
         justify-content: center;
     }
 
-    .gallery-item {
-        max-width: 90%;
-    }
-}
+    .gallery
