@@ -20,40 +20,38 @@ body {
 }
 
 /* ------------------------------------------------------ */
-/*    هدر و منو                                          */
+/*    هدر و منوی مینیمال                                */
 /* ------------------------------------------------------ */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #222;
-    color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff; /* سفید و بدون پس‌زمینه */
+    border-bottom: 1px solid #ddd; /* خط باریک در پایین */
 }
 
 .logo img {
-    width: 40px; /* اندازه کوچک‌تر لوگو */
+    width: 35px; /* کوچک‌تر و شیک‌تر */
     height: auto;
 }
 
-/* تنظیمات منو */
 nav {
     display: flex;
     gap: 15px;
 }
 
 nav a {
-    color: white;
+    color: #333;
     text-decoration: none;
-    font-size: 16px;
-    padding: 8px 15px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
 }
 
-nav a:hover, nav a.active {
-    background-color: #007bff;
+nav a:hover {
+    color: #007bff;
 }
 
 /* ------------------------------------------------------ */
@@ -71,10 +69,6 @@ h1, h2 {
     margin-bottom: 15px;
 }
 
-h1 {
-    font-size: 36px;
-}
-
 p {
     font-size: 18px;
     color: #555;
@@ -82,82 +76,51 @@ p {
 }
 
 /* ------------------------------------------------------ */
-/*    دکمه‌ها                                            */
+/*    دکمه‌های مینیمال                                   */
 /* ------------------------------------------------------ */
 .btn {
     display: inline-block;
-    padding: 12px 25px;
+    padding: 10px 20px;
     background-color: #007bff;
     color: white;
     text-decoration: none;
-    border-radius: 25px;
-    font-size: 16px;
-    font-weight: bold;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 500;
     text-align: center;
-    border: 2px solid #007bff;
+    border: none;
     transition: all 0.3s;
 }
 
 .btn:hover {
     background-color: #0056b3;
-    border-color: #0056b3;
 }
 
 /* دکمه سبز برای واتساپ */
 .btn-key {
     display: inline-block;
-    padding: 12px 25px;
+    padding: 10px 20px;
     background-color: #25D366;
     color: white;
     text-decoration: none;
-    border-radius: 25px;
-    font-size: 16px;
-    font-weight: bold;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 500;
     text-align: center;
-    border: 2px solid #25D366;
     transition: all 0.3s;
 }
 
 .btn-key:hover {
     background-color: #1da851;
-    border-color: #1da851;
 }
 
 /* ------------------------------------------------------ */
-/*    گالری تصاویر                                       */
-/* ------------------------------------------------------ */
-.gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
-.gallery-item {
-    width: 250px;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.gallery-item:hover {
-    transform: scale(1.05);
-}
-
-/* ------------------------------------------------------ */
-/*    فوتر                                               */
+/*    فوتر مینیمال                                      */
 /* ------------------------------------------------------ */
 footer {
     text-align: center;
-    padding: 20px;
-    background-color: #222;
-    color: white;
+    padding: 15px;
+    background-color: #f8f9fa;
+    color: #666;
     font-size: 14px;
 }
