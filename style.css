@@ -1,63 +1,82 @@
 /* تنظیم کلی صفحه */
 body {
+    margin: 0;
+    padding: 0;
+    background-color: #000; /* پس‌زمینه مشکی */
+    color: #fff; /* رنگ متن سفید */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* تنظیم نوار منو */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+
+/* لوگو */
+.logo img {
+    width: 50px;
+    height: auto;
+}
+
+/* منوی همبرگری */
+.menu-icon {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh; /* کل صفحه را پر کند */
-    margin: 0;
-    background-color: #000; /* پس‌زمینه مشکی برای تم سیاه و سفید */
-    color: #fff; /* رنگ متن سفید برای تم سیاه و سفید */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* فونت مدرن */
+    justify-content: space-around;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
 }
 
-/* تنظیم هدر */
-header {
-    text-align: center;
-    margin-bottom: 30px; /* فاصله بیشتر از منو */
+.menu-icon .bar {
+    height: 4px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 2px;
 }
 
-/* تنظیم لوگو */
-.logo {
-    width: 50px; /* کاهش اندازه لوگو */
-    height: auto;
-    margin-bottom: 20px; /* فاصله کمی بین لوگو و منو */
+/* منو لینک‌ها */
+.nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #000;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* تنظیم منوی عمودی */
-nav ul {
+.nav-links.active {
+    display: block;
+}
+
+.nav-links ul {
     list-style: none;
     padding: 0;
-    display: flex;
-    flex-direction: column; /* نمایش دکمه‌ها زیر هم */
-    align-items: center; /* وسط‌چین کردن آیتم‌ها */
-    gap: 12px; /* فاصله بین دکمه‌ها */
+    margin: 0;
 }
 
-nav ul li {
-    width: 180px; /* عرض ثابت برای دکمه‌ها */
+.nav-links ul li {
     text-align: center;
+    border-bottom: 2px solid #fff;
 }
 
-nav ul li a {
+.nav-links ul li a {
     display: block;
+    padding: 12px;
     text-decoration: none;
-    color: #fff; /* رنگ متن دکمه‌ها سفید */
-    font-size: 16px; /* اندازه فونت دکمه‌ها */
-    font-weight: 600; /* وزن فونت سبک‌تر */
-    padding: 12px 20px; /* پدینگ مناسب برای دکمه‌ها */
-    background-color: transparent; /* پس‌زمینه دکمه‌ها شفاف */
-    border: 2px solid #fff; /* مرز سفید رنگ */
-    border-radius: 25px; /* حاشیه گرد برای دکمه */
-    transition: all 0.3s ease; /* افکت‌های تغییرات برای هاور */
-    width: 100%;
-    text-transform: uppercase; /* تبدیل متن به حروف بزرگ */
-    letter-spacing: 1px; /* فاصله بیشتر بین حروف */
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-/* هاور دکمه‌ها */
-nav ul li a:hover {
-    background-color: #fff; /* پس‌زمینه سفید هنگام هاور */
-    color: #000; /* تغییر رنگ متن به مشکی هنگام هاور */
-    border-color: #fff; /* مرز سفید رنگ باقی می‌ماند */
+.nav-links ul li a:hover {
+    background-color: #fff;
+    color: #000;
 }
