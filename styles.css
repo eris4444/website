@@ -43,16 +43,16 @@ nav ul li a {
     font-size: 18px;
     font-weight: bold;
     padding: 15px; /* افزایش پدینگ برای ظاهر دکمه */
-    background-color: #007bff;
-    color: white;
+    background-color: #f1e6c9; /* رنگ کرم */
+    color: #333;
     border-radius: 10px; /* حاشیه گرد برای دکمه */
-    border: 2px solid #007bff; /* مرز دکمه */
+    border: 2px solid #f1e6c9; /* مرز کرم */
     transition: 0.3s;
     width: 100%;
     box-sizing: border-box; /* اطمینان از اینکه اندازه دکمه درست باشد */
 }
 
 nav ul li a:hover {
-    background-color: #0056b3;
-    border-color: #0056b3; /* تغییر رنگ مرز هنگام هاور */
+    background-color: #e1d2a2; /* تغییر رنگ به کرم تیره‌تر هنگام هاور */
+    border-color: #e1d2a2; /* تغییر رنگ مرز هنگام هاور */
 }
