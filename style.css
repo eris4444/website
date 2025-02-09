@@ -89,7 +89,7 @@ p {
     margin-bottom: 20px;
 }
 
-/* دکمه آبی برای ثبت نام از طریق ربات */
+/* دکمه با حاشیه آبی */
 .btn-blue {
     display: inline-block;
     padding: 15px 30px;
@@ -97,13 +97,18 @@ p {
     background-color: #007bff;
     color: #fff;
     text-decoration: none;
+    border: 2px solid #007bff; /* حاشیه آبی */
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    text-align: center;
+    width: auto;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    font-weight: bold;
     margin-top: 20px;
 }
 
 .btn-blue:hover {
     background-color: #0056b3;
+    border-color: #0056b3; /* تغییر رنگ حاشیه در حالت هاور */
 }
 
 /* طراحی فوتر */
