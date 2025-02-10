@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="style.css"> <!-- لینک به فایل استایل اصلی سایت -->
     <!-- بارگذاری کتابخانه moment-jalaali -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-jalaali/0.9.1/moment-jalaali.min.js"></script>
+    <!-- بارگذاری کتابخانه persian-datepicker -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/persian-datepicker@0.4.0/dist/css/persian-datepicker.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/persian-datepicker@0.4.0/dist/js/persian-datepicker.min.js"></script>
 </head>
 <body>
 
@@ -32,7 +35,7 @@
         <input type="tel" id="phone" name="phone" required>
 
         <label>تاریخ نوبت:</label>
-        <input type="date" id="appointmentDate" name="appointment_date" required>
+        <input type="text" id="appointmentDate" name="appointment_date" required>
 
         <label>ساعت نوبت:</label>
         <input type="time" id="appointmentTime" name="appointment_time" required>
@@ -60,7 +63,7 @@
     </form>
 
     <script>
-        // تغییر وضعیت ورودی‌ها بر اساس چک‌باکس‌ها
+        // فعال و غیرفعال کردن فیلد تعداد بر اساس وضعیت چک‌باکس‌ها
         document.querySelectorAll('.service-checkbox').forEach((checkbox, index) => {
             checkbox.addEventListener('change', function() {
                 const quantityInput = document.querySelectorAll('.service-quantity')[index];
@@ -68,6 +71,15 @@
                 if (!this.checked) {
                     quantityInput.value = 1; // بازنشانی به 1 اگر چک‌باکس غیرفعال شد
                 }
+            });
+        });
+
+        // اعمال تقویم شمسی به تاریخ
+        $(document).ready(function() {
+            $('#appointmentDate').persianDatepicker({
+                format: 'YYYY/MM/DD', // فرمت تاریخ شمسی
+                calendarType: 'persian', // تقویم شمسی
+                autoClose: true
             });
         });
 
@@ -84,7 +96,7 @@
             }
 
             // تبدیل تاریخ میلادی به شمسی
-            let jalaaliDate = moment(appointmentDate).format('jYYYY/jMM/jDD');
+            let jalaaliDate = moment(appointmentDate, 'YYYY/MM/DD').format('jYYYY/jMM/jDD');
 
             let selectedServices = [];
             let checkboxes = document.querySelectorAll(".service-checkbox");
