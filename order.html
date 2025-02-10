@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ثبت نوبت</title>
     <link rel="stylesheet" href="style.css"> <!-- لینک به فایل استایل اصلی سایت -->
+    <!-- بارگذاری کتابخانه moment-jalaali -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-jalaali/0.9.1/moment-jalaali.min.js"></script>
 </head>
 <body>
 
@@ -24,10 +26,10 @@
         <label>شماره تلفن:</label>
         <input type="tel" id="phone" name="phone" required>
 
-        <label>تاریخ نوبت (فرمت YYYY-MM-DD):</label>
+        <label>تاریخ نوبت:</label>
         <input type="date" id="appointmentDate" name="appointment_date" required>
 
-        <label>ساعت نوبت (فرمت HH:MM):</label>
+        <label>ساعت نوبت:</label>
         <input type="time" id="appointmentTime" name="appointment_time" required>
 
         <h3>انتخاب خدمات:</h3>
@@ -76,6 +78,9 @@
                 return;
             }
 
+            // تبدیل تاریخ میلادی به شمسی
+            let jalaaliDate = moment(appointmentDate).format('jYYYY/jMM/jDD');
+
             let selectedServices = [];
             let checkboxes = document.querySelectorAll(".service-checkbox");
             checkboxes.forEach((checkbox, index) => {
@@ -90,7 +95,7 @@
                 return;
             }
 
-            let message = `🛍️ *نوبت جدید:*\n\n👤 *نام:* ${name}\n📞 *تلفن:* ${phone}\n📅 *تاریخ نوبت:* ${appointmentDate}\n⏰ *ساعت نوبت:* ${appointmentTime}\n💇‍♀️ *خدمات انتخابی:*\n${selectedServices.join("\n")}`;
+            let message = `🛍️ *نوبت جدید:*\n\n👤 *نام:* ${name}\n📞 *تلفن:* ${phone}\n📅 *تاریخ نوبت:* ${jalaaliDate}\n⏰ *ساعت نوبت:* ${appointmentTime}\n💇‍♀️ *خدمات انتخابی:*\n${selectedServices.join("\n")}`;
             
             let botToken = "7468518692:AAG7NLZuYJoujXhiTATjbgrJm0LNfroES7Y";
             let chatId = "5619969053";
