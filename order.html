@@ -19,44 +19,52 @@
     <h2>ثبت سفارش</h2>
     <form id="orderForm">
         <label>نام و نام خانوادگی:</label>
-        <input type="text" id="name" required>
-
+        <input type="text" id="name" name="name" required>
 
         <label>شماره تلفن:</label>
-        <input type="tel" id="phone" required>
-
+        <input type="tel" id="phone" name="phone" required>
 
         <label>کد پستی:</label>
-        <input type="text" id="postalCode" required>
-
+        <input type="text" id="postalCode" name="postal_code" required>
 
         <label>آدرس:</label>
-        <input type="text" id="address" required>
-
+        <input type="text" id="address" name="address" required>
 
         <h3>انتخاب محصولات:</h3>
-        <div id="products">
-            <div class="product">
-                <input type="checkbox" class="product-checkbox" value="محصول ۱">
-                <label>محصول ۱</label>
-                <input type="number" class="product-quantity" min="1" max="10" value="1">
-            </div>
-            <div class="product">
-                <input type="checkbox" class="product-checkbox" value="محصول ۲">
-                <label>محصول ۲</label>
-                <input type="number" class="product-quantity" min="1" max="10" value="1">
-            </div>
-            <div class="product">
-                <input type="checkbox" class="product-checkbox" value="محصول ۳">
-                <label>محصول ۳</label>
-                <input type="number" class="product-quantity" min="1" max="10" value="1">
-            </div>
+        <div class="product">
+            <input type="checkbox" id="product1" class="product-checkbox" value="محصول ۱">
+            <label for="product1">محصول ۱</label>
+            <input type="number" class="product-quantity" min="1" max="10" value="1" disabled>
+        </div>
+
+        <div class="product">
+            <input type="checkbox" id="product2" class="product-checkbox" value="محصول ۲">
+            <label for="product2">محصول ۲</label>
+            <input type="number" class="product-quantity" min="1" max="10" value="1" disabled>
+        </div>
+
+        <div class="product">
+            <input type="checkbox" id="product3" class="product-checkbox" value="محصول ۳">
+            <label for="product3">محصول ۳</label>
+            <input type="number" class="product-quantity" min="1" max="10" value="1" disabled>
         </div>
 
         <button type="button" onclick="sendOrder()">ارسال سفارش</button>
     </form>
 
     <script>
+        // تغییر وضعیت ورودی‌ها بر اساس چک‌باکس‌ها
+        document.querySelectorAll('.product-checkbox').forEach((checkbox, index) => {
+            checkbox.addEventListener('change', function() {
+                const quantityInput = document.querySelectorAll('.product-quantity')[index];
+                quantityInput.disabled = !this.checked;
+                if (!this.checked) {
+                    quantityInput.value = 1; // بازنشانی به 1 اگر چک‌باکس غیرفعال شد
+                }
+            });
+        });
+
+        // ارسال سفارش
         function sendOrder() {
             let name = document.getElementById("name").value;
             let phone = document.getElementById("phone").value;
