@@ -4,9 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ثبت نوبت</title>
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
 </head>
 <body>
+
+    <header>
+        <div class="logo">
+            <img src="https://eris4444.github.io/test/assets/IMG_5328.jpeg" alt="Logo">
+        </div>
+    <nav>
+        <a href="index.html">خانه</a>
+        <a href="about.html">درباره ما</a>
+        <a href="services.html">خدمات</a>
+        <a href="gallery.html">گالری</a>
+        <a href="contact.html">تماس با ما</a>
+        <a href="order.html">نوبت گیری</a>
+    </nav>
+    </header>
+    
     <h2>ثبت نوبت</h2>
     <form id="appointmentForm">
         <label>نام و نام خانوادگی:</label>
@@ -29,6 +45,26 @@
         <label>ساعت نوبت:</label>
         <input type="time" id="appointmentTime" name="appointment_time" required>
 
+        <h3>انتخاب خدمات:</h3>
+        <div class="service">
+            <input type="checkbox" id="service1" class="service-checkbox" value="خدمات ۱">
+            <label for="service1">خدمات ۱</label>
+            <p>توضیحات:</p>
+            <input type="input" class="service-quantity" disabled>
+        </div>
+
+        <div class="service">
+            <input type="checkbox" id="service2" class="service-checkbox" value="خدمات ۲">
+            <label for="service2">خدمات ۲</label>
+            <input type="number" class="service-quantity" disabled>
+        </div>
+
+        <div class="service">
+            <input type="checkbox" id="service3" class="service-checkbox" value="خدمات ۳">
+            <label for="service3">خدمات ۳</label>
+            <input type="number" class="service-quantity" min="1" max="10" value="1" disabled>
+        </div>
+
         <button type="button" onclick="sendAppointment()">ارسال نوبت</button>
     </form>
 
@@ -38,37 +74,60 @@
             emailjs.init("YOUR_USER_ID"); // جایگزین کردن با User ID خود از EmailJS
         })();
 
+        // فعال و غیرفعال کردن فیلد تعداد بر اساس وضعیت چک‌باکس‌ها
+        document.querySelectorAll('.service-checkbox').forEach((checkbox, index) => {
+            checkbox.addEventListener('change', function() {
+                const quantityInput = document.querySelectorAll('.service-quantity')[index];
+                quantityInput.disabled = !this.checked;
+                if (!this.checked) {
+                    quantityInput.value = 1; // بازنشانی به 1 اگر چک‌باکس غیرفعال شد
+                }
+            });
+        });
+
+        // ارسال نوبت به ایمیل
         function sendAppointment() {
-            // دریافت اطلاعات از فرم
-            const name = document.getElementById("name").value;
-            const phone = document.getElementById("phone").value;
-            const appointmentDay = document.getElementById("appointmentDay").value;
-            const appointmentTime = document.getElementById("appointmentTime").value;
+            let name = document.getElementById("name").value;
+            let phone = document.getElementById("phone").value;
+            let appointmentDay = document.getElementById("appointmentDay").value;
+            let appointmentTime = document.getElementById("appointmentTime").value;
 
             if (!name || !phone || !appointmentDay || !appointmentTime) {
                 alert("لطفاً همه فیلدها را پر کنید.");
                 return;
             }
 
-            // تنظیم پارامترهای template
-            const templateParams = {
+            let selectedServices = [];
+            let checkboxes = document.querySelectorAll(".service-checkbox");
+            checkboxes.forEach((checkbox, index) => {
+                if (checkbox.checked) {
+                    let quantity = document.querySelectorAll(".service-quantity")[index].value;
+                    selectedServices.push(`${checkbox.value} × ${quantity}`);
+                }
+            });
+
+            if (selectedServices.length === 0) {
+                alert("لطفاً حداقل یک خدمت انتخاب کنید.");
+                return;
+            }
+
+            let message = `🛍️ *نوبت جدید:*\n\n👤 *نام:* ${name}\n📞 *تلفن:* ${phone}\n📅 *روز نوبت:* ${appointmentDay}\n⏰ *ساعت نوبت:* ${appointmentTime}\n💇‍♀️ *خدمات انتخابی:*\n${selectedServices.join("\n")}`;
+            
+            emailjs.send("service_zuygjro", "template_ivvlnid", {
                 name: name,
                 phone: phone,
-                appointmentDay: appointmentDay,
-                appointmentTime: appointmentTime
-            };
-
-            // ارسال ایمیل از طریق EmailJS
-            emailjs.send("service_zuygjro", "template_ivvlnid", templateParams)
-                .then(function(response) {
-                    console.log("ایمیل با موفقیت ارسال شد.", response);
-                    alert("✅ نوبت با موفقیت ثبت شد!");
-                    document.getElementById("appointmentForm").reset(); // ریست کردن فرم پس از ارسال
-                }, function(error) {
-                    console.log("خطا در ارسال ایمیل:", error);
-                    alert("❌ خطا در ارسال نوبت.");
-                });
+                appointment_day: appointmentDay,
+                appointment_time: appointmentTime,
+                selected_services: selectedServices.join("\n")
+            })
+            .then(function(response) {
+                alert("✅ نوبت با موفقیت ثبت شد!");
+                document.getElementById("appointmentForm").reset();
+            }, function(error) {
+                alert("❌ خطا در ارسال نوبت.");
+            });
         }
     </script>
+
 </body>
 </html>
