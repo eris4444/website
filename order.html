@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ثبت سفارش</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            text-align: center;
+            margin: 20px;
+        }
+        nav {
+            background-color: #333;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">خانه</a>
+        <a href="about.html">درباره ما</a>
+        <a href="services.html">دوره‌ها</a>
+        <a href="gallery.html">گالری</a>
+        <a href="contact.html">تماس با ما</a>
+    </nav>
+
+    <h2>ثبت سفارش</h2>
+    <form id="orderForm">
+        <label>نام و نام خانوادگی:</label>
+        <input type="text" id="name" required>
+
+        <label>شماره تلفن:</label>
+        <input type="tel" id="phone" required>
+
+        <label>کد پستی:</label>
+        <input type="text" id="postalCode" required>
+
+        <label>آدرس:</label>
+        <input type="text" id="address" required>
+
+        <label>انتخاب محصول:</label>
+        <select id="product">
+            <option value="محصول ۱">محصول ۱</option>
+            <option value="محصول ۲">محصول ۲</option>
+            <option value="محصول ۳">محصول ۳</option>
+        </select>
+
+        <button type="button" onclick="sendOrder()">ارسال سفارش</button>
+    </form>
+
+    <script>
+        function sendOrder() {
+            let name = document.getElementById("name").value;
+            let phone = document.getElementById("phone").value;
+            let postalCode = document.getElementById("postalCode").value;
+            let address = document.getElementById("address").value;
+            let product = document.getElementById("product").value;
+
+            if (!name || !phone || !postalCode || !address) {
+                alert("لطفاً همه فیلدها را پر کنید.");
+                return;
+            }
+
+            let message = `🛒 سفارش جدید:\n\n👤 نام: ${name}\n📞 تلفن: ${phone}\n📮 کد پستی: ${postalCode}\n📍 آدرس: ${address}\n📦 محصول: ${product}`;
+            
+            let botToken = "7468518692:AAG7NLZuYJoujXhiTATjbgrJm0LNfroES7Y";
+            let chatId = "5619969053";
+            let url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ok) {
+                        alert("✅ سفارش با موفقیت ثبت شد!");
+                        document.getElementById("orderForm").reset();
+                    } else {
+                        alert("❌ خطا در ارسال سفارش.");
+                    }
+                })
+                .catch(error => {
+                    alert("❌ خطا در ارتباط با سرور.");
+                });
+        }
+    </script>
+
+</body>
+</html>
