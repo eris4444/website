@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ثبت سفارش</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> <!-- لینک به فایل استایل اصلی سایت -->
 </head>
 <body>
 
@@ -14,7 +14,6 @@
         <a href="services.html">دوره‌ها</a>
         <a href="gallery.html">گالری</a>
         <a href="contact.html">تماس با ما</a>
-        <a href="order.html">سفارش</a>
     </nav>
 
     <h2>ثبت سفارش</h2>
@@ -22,26 +21,33 @@
         <label>نام و نام خانوادگی:</label>
         <input type="text" id="name" required>
 
-        
         <label>شماره تلفن:</label>
         <input type="tel" id="phone" required>
 
-       
-         <label>کد پستی:</label>
+        <label>کد پستی:</label>
         <input type="text" id="postalCode" required>
 
-       
-         <label>آدرس:</label>
+        <label>آدرس:</label>
         <input type="text" id="address" required>
 
-        
-        <label>انتخاب محصول:</label>
-        <select id="product">
-       
-                 <option value="محصول ۱">محصول ۱</option>
-            <option value="محصول ۲">محصول ۲</option>
-            <option value="محصول ۳">محصول ۳</option>
-        </select>
+        <h3>انتخاب محصولات:</h3>
+        <div id="products">
+            <div class="product">
+                <input type="checkbox" class="product-checkbox" value="محصول ۱">
+                <label>محصول ۱</label>
+                <input type="number" class="product-quantity" min="1" max="10" value="1">
+            </div>
+            <div class="product">
+                <input type="checkbox" class="product-checkbox" value="محصول ۲">
+                <label>محصول ۲</label>
+                <input type="number" class="product-quantity" min="1" max="10" value="1">
+            </div>
+            <div class="product">
+                <input type="checkbox" class="product-checkbox" value="محصول ۳">
+                <label>محصول ۳</label>
+                <input type="number" class="product-quantity" min="1" max="10" value="1">
+            </div>
+        </div>
 
         <button type="button" onclick="sendOrder()">ارسال سفارش</button>
     </form>
@@ -52,18 +58,31 @@
             let phone = document.getElementById("phone").value;
             let postalCode = document.getElementById("postalCode").value;
             let address = document.getElementById("address").value;
-            let product = document.getElementById("product").value;
 
             if (!name || !phone || !postalCode || !address) {
                 alert("لطفاً همه فیلدها را پر کنید.");
                 return;
             }
 
-            let message = `🛒 سفارش جدید:\n\n👤 نام: ${name}\n📞 تلفن: ${phone}\n📮 کد پستی: ${postalCode}\n📍 آدرس: ${address}\n📦 محصول: ${product}`;
+            let selectedProducts = [];
+            let checkboxes = document.querySelectorAll(".product-checkbox");
+            checkboxes.forEach((checkbox, index) => {
+                if (checkbox.checked) {
+                    let quantity = document.querySelectorAll(".product-quantity")[index].value;
+                    selectedProducts.push(`${checkbox.value} × ${quantity}`);
+                }
+            });
+
+            if (selectedProducts.length === 0) {
+                alert("لطفاً حداقل یک محصول انتخاب کنید.");
+                return;
+            }
+
+            let message = `🛒 *سفارش جدید:*\n\n👤 *نام:* ${name}\n📞 *تلفن:* ${phone}\n📮 *کد پستی:* ${postalCode}\n📍 *آدرس:* ${address}\n📦 *محصولات:*\n${selectedProducts.join("\n")}`;
             
             let botToken = "7468518692:AAG7NLZuYJoujXhiTATjbgrJm0LNfroES7Y";
             let chatId = "5619969053";
-            let url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+            let url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}&parse_mode=Markdown`;
 
             fetch(url)
                 .then(response => response.json())
