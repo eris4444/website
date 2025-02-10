@@ -169,6 +169,30 @@ input, select, button {
     height: 20px;
 }
 
+/* ------------------------------------------------------ */
+/*    تنظیم چینش محصولات                               */
+/* ------------------------------------------------------ */
+.product {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* تنظیم سایز چک‌باکس */
+.product-checkbox {
+    width: 20px;
+    height: 20px;
+}
+
+/* تنظیم فیلد عددی */
+.quantity-input {
+    width: 60px;
+    padding: 5px;
+    font-size: 16px;
+    text-align: center;
+}
+
 /* دکمه ارسال سفارش */
 button {
     background-color: #007bff;
