@@ -153,12 +153,20 @@ input, select, button {
     font-size: 16px;
 }
 
+/* ------------------------------------------------------ */
+/*    بخش انتخاب محصولات                                */
+/* ------------------------------------------------------ */
 .product {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 10px; /* فاصله مناسب بین چک‌باکس و نام محصول */
     border-bottom: 1px solid #ddd;
-    padding: 5px 0;
+    padding: 10px 0;
+}
+
+.product input {
+    width: 20px;
+    height: 20px;
 }
 
 /* دکمه ارسال سفارش */
