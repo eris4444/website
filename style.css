@@ -124,3 +124,56 @@ footer {
     color: #666;
     font-size: 14px;
 }
+/* ------------------------------------------------------ */
+/*    استایل فرم سفارش                                   */
+/* ------------------------------------------------------ */
+form {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #f9f9f9;
+    text-align: right;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.product {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 5px 0;
+}
+
+/* دکمه ارسال سفارش */
+button {
+    background-color: #007bff;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
