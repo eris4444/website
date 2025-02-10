@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ثبت سفارش</title>
+    <title>ثبت نوبت</title>
     <link rel="stylesheet" href="style.css"> <!-- لینک به فایل استایل اصلی سایت -->
 </head>
 <body>
@@ -11,52 +11,52 @@
     <nav>
         <a href="index.html">خانه</a>
         <a href="about.html">درباره ما</a>
-        <a href="services.html">دوره‌ها</a>
+        <a href="services.html">خدمات</a>
         <a href="gallery.html">گالری</a>
         <a href="contact.html">تماس با ما</a>
     </nav>
 
-    <h2>ثبت سفارش</h2>
-    <form id="orderForm">
+    <h2>ثبت نوبت</h2>
+    <form id="appointmentForm">
         <label>نام و نام خانوادگی:</label>
         <input type="text" id="name" name="name" required>
 
         <label>شماره تلفن:</label>
         <input type="tel" id="phone" name="phone" required>
 
-        <label>کد پستی:</label>
-        <input type="text" id="postalCode" name="postal_code" required>
+        <label>تاریخ نوبت (فرمت YYYY-MM-DD):</label>
+        <input type="date" id="appointmentDate" name="appointment_date" required>
 
-        <label>آدرس:</label>
-        <input type="text" id="address" name="address" required>
+        <label>ساعت نوبت (فرمت HH:MM):</label>
+        <input type="time" id="appointmentTime" name="appointment_time" required>
 
-        <h3>انتخاب محصولات:</h3>
-        <div class="product">
-            <input type="checkbox" id="product1" class="product-checkbox" value="محصول ۱">
-            <label for="product1">محصول ۱</label>
-            <input type="number" class="product-quantity" min="1" max="10" value="1" disabled>
+        <h3>انتخاب خدمات:</h3>
+        <div class="service">
+            <input type="checkbox" id="service1" class="service-checkbox" value="خدمات ۱">
+            <label for="service1">خدمات ۱</label>
+            <input type="number" class="service-quantity" min="1" max="10" value="1" disabled>
         </div>
 
-        <div class="product">
-            <input type="checkbox" id="product2" class="product-checkbox" value="محصول ۲">
-            <label for="product2">محصول ۲</label>
-            <input type="number" class="product-quantity" min="1" max="10" value="1" disabled>
+        <div class="service">
+            <input type="checkbox" id="service2" class="service-checkbox" value="خدمات ۲">
+            <label for="service2">خدمات ۲</label>
+            <input type="number" class="service-quantity" min="1" max="10" value="1" disabled>
         </div>
 
-        <div class="product">
-            <input type="checkbox" id="product3" class="product-checkbox" value="محصول ۳">
-            <label for="product3">محصول ۳</label>
-            <input type="number" class="product-quantity" min="1" max="10" value="1" disabled>
+        <div class="service">
+            <input type="checkbox" id="service3" class="service-checkbox" value="خدمات ۳">
+            <label for="service3">خدمات ۳</label>
+            <input type="number" class="service-quantity" min="1" max="10" value="1" disabled>
         </div>
 
-        <button type="button" onclick="sendOrder()">ارسال سفارش</button>
+        <button type="button" onclick="sendAppointment()">ارسال نوبت</button>
     </form>
 
     <script>
         // تغییر وضعیت ورودی‌ها بر اساس چک‌باکس‌ها
-        document.querySelectorAll('.product-checkbox').forEach((checkbox, index) => {
+        document.querySelectorAll('.service-checkbox').forEach((checkbox, index) => {
             checkbox.addEventListener('change', function() {
-                const quantityInput = document.querySelectorAll('.product-quantity')[index];
+                const quantityInput = document.querySelectorAll('.service-quantity')[index];
                 quantityInput.disabled = !this.checked;
                 if (!this.checked) {
                     quantityInput.value = 1; // بازنشانی به 1 اگر چک‌باکس غیرفعال شد
@@ -64,33 +64,33 @@
             });
         });
 
-        // ارسال سفارش
-        function sendOrder() {
+        // ارسال نوبت
+        function sendAppointment() {
             let name = document.getElementById("name").value;
             let phone = document.getElementById("phone").value;
-            let postalCode = document.getElementById("postalCode").value;
-            let address = document.getElementById("address").value;
+            let appointmentDate = document.getElementById("appointmentDate").value;
+            let appointmentTime = document.getElementById("appointmentTime").value;
 
-            if (!name || !phone || !postalCode || !address) {
+            if (!name || !phone || !appointmentDate || !appointmentTime) {
                 alert("لطفاً همه فیلدها را پر کنید.");
                 return;
             }
 
-            let selectedProducts = [];
-            let checkboxes = document.querySelectorAll(".product-checkbox");
+            let selectedServices = [];
+            let checkboxes = document.querySelectorAll(".service-checkbox");
             checkboxes.forEach((checkbox, index) => {
                 if (checkbox.checked) {
-                    let quantity = document.querySelectorAll(".product-quantity")[index].value;
-                    selectedProducts.push(`${checkbox.value} × ${quantity}`);
+                    let quantity = document.querySelectorAll(".service-quantity")[index].value;
+                    selectedServices.push(`${checkbox.value} × ${quantity}`);
                 }
             });
 
-            if (selectedProducts.length === 0) {
-                alert("لطفاً حداقل یک محصول انتخاب کنید.");
+            if (selectedServices.length === 0) {
+                alert("لطفاً حداقل یک خدمت انتخاب کنید.");
                 return;
             }
 
-            let message = `🛒 *سفارش جدید:*\n\n👤 *نام:* ${name}\n📞 *تلفن:* ${phone}\n📮 *کد پستی:* ${postalCode}\n📍 *آدرس:* ${address}\n📦 *محصولات:*\n${selectedProducts.join("\n")}`;
+            let message = `🛍️ *نوبت جدید:*\n\n👤 *نام:* ${name}\n📞 *تلفن:* ${phone}\n📅 *تاریخ نوبت:* ${appointmentDate}\n⏰ *ساعت نوبت:* ${appointmentTime}\n💇‍♀️ *خدمات انتخابی:*\n${selectedServices.join("\n")}`;
             
             let botToken = "7468518692:AAG7NLZuYJoujXhiTATjbgrJm0LNfroES7Y";
             let chatId = "5619969053";
@@ -100,10 +100,10 @@
                 .then(response => response.json())
                 .then(data => {
                     if (data.ok) {
-                        alert("✅ سفارش با موفقیت ثبت شد!");
-                        document.getElementById("orderForm").reset();
+                        alert("✅ نوبت با موفقیت ثبت شد!");
+                        document.getElementById("appointmentForm").reset();
                     } else {
-                        alert("❌ خطا در ارسال سفارش.");
+                        alert("❌ خطا در ارسال نوبت.");
                     }
                 })
                 .catch(error => {
