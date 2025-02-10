@@ -34,8 +34,16 @@
         <label>شماره تلفن:</label>
         <input type="tel" id="phone" name="phone" required>
 
-        <label>تاریخ نوبت:</label>
-        <input type="text" id="appointmentDate" name="appointment_date" required>
+        <label>انتخاب روز نوبت:</label>
+        <select id="appointmentDay" name="appointment_day" required>
+            <option value="شنبه">شنبه</option>
+            <option value="یکشنبه">یکشنبه</option>
+            <option value="دوشنبه">دوشنبه</option>
+            <option value="سه‌شنبه">سه‌شنبه</option>
+            <option value="چهارشنبه">چهارشنبه</option>
+            <option value="پنج‌شنبه">پنج‌شنبه</option>
+            <option value="جمعه">جمعه</option>
+        </select>
 
         <label>ساعت نوبت:</label>
         <input type="time" id="appointmentTime" name="appointment_time" required>
@@ -74,29 +82,17 @@
             });
         });
 
-        // اعمال تقویم شمسی به تاریخ
-        $(document).ready(function() {
-            $('#appointmentDate').persianDatepicker({
-                format: 'YYYY/MM/DD', // فرمت تاریخ شمسی
-                calendarType: 'persian', // تقویم شمسی
-                autoClose: true
-            });
-        });
-
         // ارسال نوبت
         function sendAppointment() {
             let name = document.getElementById("name").value;
             let phone = document.getElementById("phone").value;
-            let appointmentDate = document.getElementById("appointmentDate").value;
+            let appointmentDay = document.getElementById("appointmentDay").value;
             let appointmentTime = document.getElementById("appointmentTime").value;
 
-            if (!name || !phone || !appointmentDate || !appointmentTime) {
+            if (!name || !phone || !appointmentDay || !appointmentTime) {
                 alert("لطفاً همه فیلدها را پر کنید.");
                 return;
             }
-
-            // تبدیل تاریخ میلادی به شمسی
-            let jalaaliDate = moment(appointmentDate, 'YYYY/MM/DD').format('jYYYY/jMM/jDD');
 
             let selectedServices = [];
             let checkboxes = document.querySelectorAll(".service-checkbox");
@@ -112,7 +108,7 @@
                 return;
             }
 
-            let message = `🛍️ *نوبت جدید:*\n\n👤 *نام:* ${name}\n📞 *تلفن:* ${phone}\n📅 *تاریخ نوبت:* ${jalaaliDate}\n⏰ *ساعت نوبت:* ${appointmentTime}\n💇‍♀️ *خدمات انتخابی:*\n${selectedServices.join("\n")}`;
+            let message = `🛍️ *نوبت جدید:*\n\n👤 *نام:* ${name}\n📞 *تلفن:* ${phone}\n📅 *روز نوبت:* ${appointmentDay}\n⏰ *ساعت نوبت:* ${appointmentTime}\n💇‍♀️ *خدمات انتخابی:*\n${selectedServices.join("\n")}`;
             
             let botToken = "7468518692:AAG7NLZuYJoujXhiTATjbgrJm0LNfroES7Y";
             let chatId = "5619969053";
