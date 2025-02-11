@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سفارش تلگرام پریمیوم</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>سفارش تلگرام پریمیوم</h2>
+        <form id="orderForm">
+            <label for="name">نام:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="username">یوزرنیم تلگرام:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="plan">انتخاب پلن:</label>
+            <select id="plan" name="plan">
+                <option value="3">۳ ماهه - ۱۶ دلار</option>
+                <option value="6">۶ ماهه - ۲۰ دلار</option>
+                <option value="12">۱ ساله - ۳۳ دلار</option>
+            </select>
+
+            <button type="submit">ارسال سفارش</button>
+        </form>
+        <p id="response"></p>
+    </div>
+
+    <script>
+        document.getElementById("orderForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value;
+            const username = document.getElementById("username").value;
+            const plan = document.getElementById("plan").value;
+            let price = "";
+
+            if (plan === "3") price = "۱۶ دلار (۳ ماهه)";
+            else if (plan === "6") price = "۲۰ دلار (۶ ماهه)";
+            else if (plan === "12") price = "۳۳ دلار (۱ ساله)";
+
+            const message = `📦 سفارش جدید تلگرام پریمیوم:\n\n👤 نام: ${name}\n💬 یوزرنیم: @${username}\n📆 مدت: ${price}`;
+            
+            const botToken = "7468518692:AAG7NLZuYJoujXhiTATjbgrJm0LNfroES7Y";
+            const chatId = "5619969053";
+            const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+            fetch(url, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: message,
+                    parse_mode: "Markdown"
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {
+                    document.getElementById("response").innerText = "✅ سفارش شما با موفقیت ارسال شد!";
+                } else {
+                    document.getElementById("response").innerText = "❌ خطا در ارسال سفارش!";
+                }
+            })
+            .catch(error => {
+                document.getElementById("response").innerText = "❌ مشکل در ارتباط با سرور!";
+            });
+        });
+    </script>
+</body>
+</html>
