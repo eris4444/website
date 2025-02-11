@@ -107,6 +107,25 @@ p {
     background-color: #0056b3;
 }
 
+/* دکمه ثبت نام از طریق ربات */
+.btn-register {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.3s;
+    margin-top: 15px;
+}
+
+.btn-register:hover {
+    background-color: #218838;
+}
+
 /* ------------------------------------------------------ */
 /*    فوتر مینیمال                                      */
 /* ------------------------------------------------------ */
@@ -227,24 +246,12 @@ button:hover {
         color: white;
     }
 
+    h1, h2, p {
+        color: #e0e0e0;
+    }
+
     footer {
         background-color: #1e1e1e;
-        color: #b0b0b0;
-        border-top: 2px solid #333;
-    }
-
-    form {
-        background: #1e1e1e;
-        box-shadow: 0px 4px 12px rgba(255, 255, 255, 0.1);
-    }
-
-    input, select, button {
-        background: #222;
-        color: #e0e0e0;
-        border: 1px solid #444;
-    }
-
-    input:focus, select:focus {
-        border-color: #007bff;
+        color: #bbb;
     }
 }
