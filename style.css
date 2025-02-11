@@ -1,5 +1,5 @@
 /* ------------------------------------------------------ */
-/*    تنظیمات عمومی - تم هکری                           */
+/*    تنظیمات عمومی                                      */
 /* ------------------------------------------------------ */
 @import url('https://cdn.jsdelivr.net/npm/vazirmatn@33.003/variable/font-face.css');
 
@@ -8,53 +8,55 @@
     padding: 0;
     box-sizing: border-box;
     direction: rtl;
-    font-family: 'Courier New', monospace; /* تغییر فونت به سبک ترمینال */
+    font-family: 'Vazirmatn', sans-serif;
     text-align: right;
 }
 
 body {
-    background-color: #000; /* پس‌زمینه کاملا مشکی */
-    color: #0f0; /* رنگ نوشته‌ها سبز نئونی */
+    background-color: #121212; /* پس‌زمینه تیره‌تر برای حس مدرن */
+    color: #e0e0e0;
     font-size: 16px;
     line-height: 1.8;
-    text-shadow: 0 0 5px #0f0, 0 0 10px #0f0; /* نور نئونی برای متن */
 }
 
 /* ------------------------------------------------------ */
-/*    هدر و منوی هکری                                   */
+/*    هدر و منوی مدرن                                   */
 /* ------------------------------------------------------ */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    background-color: #111; /* مشکی تیره */
-    border-bottom: 1px solid #0f0; /* خط سبز نئونی */
+    padding: 15px 20px;
+    background-color: #1e1e1e; /* هدر تیره */
+    border-bottom: 2px solid #333; /* خط باریک و مدرن */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .logo img {
     width: 40px;
     height: auto;
-    filter: drop-shadow(0 0 5px #0f0);
 }
 
 nav {
     display: flex;
-    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* کاهش فاصله بین آیتم‌های منو */
 }
 
 nav a {
-    color: #0f0;
+    color: #e0e0e0;
     text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 5px 10px;
-    transition: all 0.3s;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
 }
 
 nav a:hover {
-    color: #fff;
-    text-shadow: 0 0 10px #0f0;
+    background-color: #007bff;
+    color: white;
 }
 
 /* ------------------------------------------------------ */
@@ -67,144 +69,155 @@ main {
 }
 
 h1, h2 {
-    font-size: 30px;
-    color: #0f0;
-    text-shadow: 0 0 5px #0f0;
-    animation: glitch 1s infinite;
+    font-size: 32px;
+    color: #ffffff;
+    margin-bottom: 15px;
 }
 
 p {
     font-size: 18px;
-    color: #0f0;
-    text-shadow: 0 0 5px #0f0;
+    color: #b0b0b0;
+    margin-bottom: 20px;
 }
 
 /* ------------------------------------------------------ */
-/*    دکمه‌های هکری                                     */
+/*    دکمه‌های مدرن                                      */
 /* ------------------------------------------------------ */
 .btn {
     display: inline-block;
-    padding: 10px 20px;
-    background-color: transparent;
-    color: #0f0;
+    padding: 12px 24px;
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    color: white;
     text-decoration: none;
-    border: 2px solid #0f0;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 15px;
-    font-weight: bold;
+    font-weight: 500;
     text-align: center;
+    border: none;
     transition: all 0.3s;
-    text-shadow: 0 0 5px #0f0;
+    box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.3);
 }
 
 .btn:hover {
-    background-color: #0f0;
-    color: #000;
-    text-shadow: none;
+    background: linear-gradient(45deg, #0056b3, #003f7f);
+    box-shadow: 0px 6px 12px rgba(0, 123, 255, 0.5);
+}
+
+/* دکمه سبز برای واتساپ */
+.btn-key {
+    background: linear-gradient(45deg, #25D366, #1da851);
+}
+
+.btn-key:hover {
+    background: linear-gradient(45deg, #1da851, #128c7e);
 }
 
 /* ------------------------------------------------------ */
-/*    افکت گلیچ برای متن                                */
-/* ------------------------------------------------------ */
-@keyframes glitch {
-    0% { text-shadow: 0 0 5px #0f0, 2px 2px 5px #0f0; }
-    50% { text-shadow: 0 0 10px #0f0, -2px -2px 5px #0f0; }
-    100% { text-shadow: 0 0 5px #0f0, 2px 2px 5px #0f0; }
-}
-
-/* ------------------------------------------------------ */
-/*    فوتر هکری                                        */
+/*    فوتر مدرن                                         */
 /* ------------------------------------------------------ */
 footer {
     text-align: center;
-    padding: 15px;
-    background-color: #111;
-    color: #0f0;
+    padding: 20px;
+    background-color: #1e1e1e;
+    color: #b0b0b0;
     font-size: 14px;
-    border-top: 1px solid #0f0;
+    border-top: 2px solid #333;
 }
 
 /* ------------------------------------------------------ */
-/*    استایل فرم سفارش                                 */
+/*    استایل فرم سفارش                                   */
 /* ------------------------------------------------------ */
 form {
     max-width: 400px;
     margin: auto;
     padding: 20px;
-    border: 1px solid #0f0;
-    border-radius: 5px;
-    background: #111;
-    color: #0f0;
-    text-shadow: 0 0 5px #0f0;
+    border-radius: 8px;
+    background: #1e1e1e;
+    box-shadow: 0px 4px 12px rgba(255, 255, 255, 0.1);
+    text-align: right;
 }
 
 label {
     display: block;
     margin-top: 10px;
     font-weight: bold;
+    color: #e0e0e0;
 }
 
 input, select, button {
     width: 100%;
     padding: 12px;
     margin-top: 5px;
-    border: 1px solid #0f0;
+    border: 1px solid #444;
     border-radius: 5px;
     font-size: 16px;
     background: #222;
-    color: #0f0;
+    color: #e0e0e0;
+}
+
+input:focus, select:focus {
+    border-color: #007bff;
+    outline: none;
 }
 
 /* ------------------------------------------------------ */
-/*    دکمه‌های ویژه سفارش                               */
-/* ------------------------------------------------------ */
-button {
-    background-color: transparent;
-    color: #0f0;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 12px 20px;
-    border: 2px solid #0f0;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
-    transition: all 0.3s;
-    text-shadow: 0 0 5px #0f0;
-}
-
-button:hover {
-    background-color: #0f0;
-    color: #000;
-    text-shadow: none;
-}
-
-/* ------------------------------------------------------ */
-/*    استایل محصولات                                   */
+/*    بخش انتخاب محصولات                                */
 /* ------------------------------------------------------ */
 .product {
     display: flex;
     align-items: center;
     gap: 10px;
-    border-bottom: 1px solid #0f0;
+    border-bottom: 1px solid #333;
     padding: 10px 0;
 }
 
 .product input {
     width: 20px;
     height: 20px;
-    background: #000;
-    border: 1px solid #0f0;
 }
 
 /* ------------------------------------------------------ */
-/*    افکت برای پس‌زمینه                                 */
+/*    دکمه ارسال سفارش                                 */
 /* ------------------------------------------------------ */
-@keyframes background-glitch {
-    0% { background-color: #000; }
-    50% { background-color: #010101; }
-    100% { background-color: #000; }
+button {
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s;
+    box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.3);
 }
 
-body {
-    animation: background-glitch 3s infinite;
+button:hover {
+    background: linear-gradient(45deg, #0056b3, #003f7f);
+    box-shadow: 0px 6px 12px rgba(0, 123, 255, 0.5);
+}
+
+/* ------------------------------------------------------ */
+/*    تنظیمات منو در موبایل                             */
+/* ------------------------------------------------------ */
+@media (max-width: 768px) {
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        padding: 6px 10px;
+        font-size: 13px;
+    }
+
+    main {
+        padding: 30px 15px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
 }
