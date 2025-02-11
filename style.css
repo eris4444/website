@@ -259,7 +259,7 @@ button:hover {
 /* ------------------------------------------------------ */
 /*    دکمه ثبت نام به صورت دکمه                           */
 /* ------------------------------------------------------ */
-#courses .btn-register {
+#services .btn-register {
     display: inline-block;
     padding: 12px 25px;
     background-color: #28a745;
