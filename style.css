@@ -13,48 +13,54 @@
 }
 
 body {
-    background-color: #121212; /* پس‌زمینه تیره‌تر برای حس مدرن */
-    color: #e0e0e0;
+    background-color: #f4f4f4; /* پس‌زمینه روشن */
+    color: #333;
     font-size: 16px;
     line-height: 1.8;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* ------------------------------------------------------ */
-/*    هدر و منوی مدرن                                   */
+/*    هدر و منوی مینیمال                                */
 /* ------------------------------------------------------ */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
-    background-color: #1e1e1e; /* هدر تیره */
-    border-bottom: 2px solid #333; /* خط باریک و مدرن */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    background-color: #ffffff; /* پس‌زمینه سفید */
+    border-bottom: 1px solid #ddd; /* خط باریک در پایین */
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .logo img {
-    width: 40px;
+    width: 35px; /* کوچک‌تر و شیک‌تر */
     height: auto;
 }
 
 nav {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px; /* کاهش فاصله بین آیتم‌های منو */
+    gap: 10px; /* فاصله بین آیتم‌های منو کاهش داده شده */
 }
 
 nav a {
-    color: #e0e0e0;
+    color: #333;
     text-decoration: none;
     font-size: 15px;
     font-weight: 500;
-    padding: 8px 12px;
-    border-radius: 5px;
+    padding: 5px 10px;
     transition: all 0.3s ease;
 }
 
 nav a:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* تم تمایز دکمه صفحه فعلی */
+nav a.active {
     background-color: #007bff;
     color: white;
 }
@@ -70,58 +76,46 @@ main {
 
 h1, h2 {
     font-size: 32px;
-    color: #ffffff;
+    color: #222;
     margin-bottom: 15px;
 }
 
 p {
     font-size: 18px;
-    color: #b0b0b0;
+    color: #555;
     margin-bottom: 20px;
 }
 
 /* ------------------------------------------------------ */
-/*    دکمه‌های مدرن                                      */
+/*    دکمه‌های مینیمال                                   */
 /* ------------------------------------------------------ */
 .btn {
     display: inline-block;
-    padding: 12px 24px;
-    background: linear-gradient(45deg, #007bff, #0056b3);
+    padding: 10px 20px;
+    background-color: #007bff;
     color: white;
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 5px;
     font-size: 15px;
     font-weight: 500;
     text-align: center;
     border: none;
     transition: all 0.3s;
-    box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.3);
 }
 
 .btn:hover {
-    background: linear-gradient(45deg, #0056b3, #003f7f);
-    box-shadow: 0px 6px 12px rgba(0, 123, 255, 0.5);
-}
-
-/* دکمه سبز برای واتساپ */
-.btn-key {
-    background: linear-gradient(45deg, #25D366, #1da851);
-}
-
-.btn-key:hover {
-    background: linear-gradient(45deg, #1da851, #128c7e);
+    background-color: #0056b3;
 }
 
 /* ------------------------------------------------------ */
-/*    فوتر مدرن                                         */
+/*    فوتر مینیمال                                      */
 /* ------------------------------------------------------ */
 footer {
     text-align: center;
-    padding: 20px;
-    background-color: #1e1e1e;
-    color: #b0b0b0;
+    padding: 15px;
+    background-color: #f8f9fa;
+    color: #666;
     font-size: 14px;
-    border-top: 2px solid #333;
 }
 
 /* ------------------------------------------------------ */
@@ -131,9 +125,9 @@ form {
     max-width: 400px;
     margin: auto;
     padding: 20px;
-    border-radius: 8px;
-    background: #1e1e1e;
-    box-shadow: 0px 4px 12px rgba(255, 255, 255, 0.1);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fff;
     text-align: right;
 }
 
@@ -141,23 +135,15 @@ label {
     display: block;
     margin-top: 10px;
     font-weight: bold;
-    color: #e0e0e0;
 }
 
 input, select, button {
     width: 100%;
     padding: 12px;
     margin-top: 5px;
-    border: 1px solid #444;
+    border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-    background: #222;
-    color: #e0e0e0;
-}
-
-input:focus, select:focus {
-    border-color: #007bff;
-    outline: none;
 }
 
 /* ------------------------------------------------------ */
@@ -167,7 +153,7 @@ input:focus, select:focus {
     display: flex;
     align-items: center;
     gap: 10px;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid #ddd;
     padding: 10px 0;
 }
 
@@ -177,47 +163,88 @@ input:focus, select:focus {
 }
 
 /* ------------------------------------------------------ */
-/*    دکمه ارسال سفارش                                 */
+/*    تنظیم چینش محصولات                               */
 /* ------------------------------------------------------ */
+.product {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* تنظیم سایز چک‌باکس */
+.product-checkbox {
+    width: 20px;
+    height: 20px;
+}
+
+/* تنظیم فیلد عددی */
+.quantity-input {
+    width: 60px;
+    padding: 5px;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* دکمه ارسال سفارش */
 button {
-    background: linear-gradient(45deg, #007bff, #0056b3);
+    background-color: #007bff;
     color: white;
     font-size: 18px;
     font-weight: bold;
     padding: 12px 20px;
     border: none;
-    border-radius: 8px;
+    border-radius: 5px;
     cursor: pointer;
     text-align: center;
     transition: all 0.3s;
-    box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.3);
 }
 
 button:hover {
-    background: linear-gradient(45deg, #0056b3, #003f7f);
-    box-shadow: 0px 6px 12px rgba(0, 123, 255, 0.5);
+    background-color: #0056b3;
 }
 
 /* ------------------------------------------------------ */
-/*    تنظیمات منو در موبایل                             */
+/*    تم دارک مود                                         */
 /* ------------------------------------------------------ */
-@media (max-width: 768px) {
-    nav {
-        flex-wrap: wrap;
-        justify-content: center;
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #e0e0e0;
+    }
+
+    header {
+        background-color: #1e1e1e;
+        border-bottom: 2px solid #333;
     }
 
     nav a {
-        padding: 6px 10px;
-        font-size: 13px;
+        color: #e0e0e0;
     }
 
-    main {
-        padding: 30px 15px;
+    nav a:hover {
+        background-color: #007bff;
+        color: white;
     }
 
-    .btn {
-        padding: 10px 20px;
-        font-size: 14px;
+    footer {
+        background-color: #1e1e1e;
+        color: #b0b0b0;
+        border-top: 2px solid #333;
+    }
+
+    form {
+        background: #1e1e1e;
+        box-shadow: 0px 4px 12px rgba(255, 255, 255, 0.1);
+    }
+
+    input, select, button {
+        background: #222;
+        color: #e0e0e0;
+        border: 1px solid #444;
+    }
+
+    input:focus, select:focus {
+        border-color: #007bff;
     }
 }
