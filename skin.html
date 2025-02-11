@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لیست قیمت خدمات و نوبت‌گیری</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .alert {
+            background-color: #ffcc00;
+            color: black;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+        header {
+            background-color: #BC8F8F;
+            color: white;
+            padding: 20px;
+        }
+        footer {
+            background-color: #C0C0C0;
+            color: white;
+            padding: 5px;
+            position: relative;
+            width: 100%;
+            font-size: 12px;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background-color: #7B68EE;
+            color: white;
+        }
+        form {
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        button {
+            background-color: #2980b9;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #1f6f96;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="alert">
+        توجه! حتماً با فیلترشکن روشن نوبت بگیرید.
+    </div>
+
+    <header>
+        <h1>لیست قیمت محصولات و فرم نوبت‌گیری</h1>
+    </header>
+
+    <div id="content">
+        <h2>فرم نوبت گیری در انتها</h2>
+        <table>
+            <tr><th>خدمات</th><th>قیمت</th></tr>
+            <tr><td>فیشال بدون دستگاه</td><td>180,000T</td></tr>
+            <tr><td>فیشال ساده</td><td>300,000T</td></tr>
+            <tr><td>فیشال تخصصی</td><td>500,000T</td></tr>
+            <tr><td>مزونیدلینگ سر</td><td>300,000T</td></tr>
+            <tr><td>مزونیدلینگ بوتاکس</td><td>350,000T</td></tr>
+            <tr><td>مزونیدلینگ جوانساز</td><td>500,000T</td></tr>
+            <tr><td>مزونیدلینگ سفید کننده</td><td>600,000T</td></tr>
+            <tr><td>مزونیدلینگ جوانساز ضد چروک ضد لک</td><td>800,000T</td></tr>
+            <tr><td>هایفو</td><td>450,000T</td></tr>
+        </table>
+
+        <form id="appointmentForm">
+            <label for="name">نام</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="lastname">نام خانوادگی</label>
+            <input type="text" id="lastname" name="lastname" required>
+
+            <label for="phone">شماره تلفن</label>
+            <input type="text" id="phone" name="phone" required>
+
+            <label for="service">خدمات مورد نظر (حداکثر ۳ انتخاب)</label>
+            <select id="service" name="service" multiple required>
+                <option value="فیشال بدون دستگاه">فیشال بدون دستگاه</option>
+                <option value="فیشال ساده">فیشال ساده</option>
+                <option value="فیشال تخصصی">فیشال تخصصی</option>
+                <option value="مزونیدلینگ سر">مزونیدلینگ سر</option>
+                <option value="مزونیدلینگ بوتاکس">مزونیدلینگ بوتاکس</option>
+                <option value="مزونیدلینگ جوانساز">مزونیدلینگ جوانساز</option>
+                <option value="مزونیدلینگ سفید کننده">مزونیدلینگ سفید کننده</option>
+                <option value="مزونیدلینگ جوانساز ضد چروک ضد لک">مزونیدلینگ جوانساز ضد چروک ضد لک</option>
+                <option value="هایفو">هایفو</option>
+            </select>
+
+            <label for="day">روز مورد نظر</label>
+            <select id="day" name="day" required>
+                <option value="شنبه">شنبه</option>
+                <option value="یکشنبه">یکشنبه</option>
+                <option value="دوشنبه">دوشنبه</option>
+                <option value="سه‌شنبه">سه‌شنبه</option>
+                <option value="چهارشنبه">چهارشنبه</option>
+                <option value="پنج‌شنبه">پنج‌شنبه</option>
+                <option value="جمعه">جمعه</option>
+            </select>
+
+            <label for="hour">ساعت مورد نظر</label>
+            <select id="hour" name="hour" required>
+                <option value="9:00">9:00</option>
+                <option value="10:00">10:00</option>
+                <option value="11:00">11:00</option>
+                <option value="12:00">12:00</option>
+                <option value="13:00">13:00</option>
+                <option value="14:00">14:00</option>
+                <option value="15:00">15:00</option>
+                <option value="16:00">16:00</option>
+                <option value="17:00">17:00</option>
+            </select>
+
+            <button type="submit">ارسال نوبت</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>تمامی حقوق محفوظ است &copy; 2025</p>
+    </footer>
+
+    <script>
+        const botToken = '7751110649:AAHAUYzsxdrZi9AV68GZ8_7VednWsVubhwg';  
+        const chatId = '6586794887';  
+
+        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const lastname = document.getElementById('lastname').value;
+            const phone = document.getElementById('phone').value;
+            const services = Array.from(document.getElementById('service').selectedOptions).map(option => option.value).join(', ');
+            const day = document.getElementById('day').value;
+            const hour = document.getElementById('hour').value;
+
+            const message = `نام: ${name}\nنام خانوادگی: ${lastname}\nشماره تلفن: ${phone}\nخدمات انتخابی: ${services}\nروز انتخابی: ${day}\nساعت انتخابی: ${hour}`;
+
+            fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`)
+                .then(response => response.json())
+                .then(() => alert('نوبت شما با موفقیت ثبت شد!'))
+                .catch(() => alert('خطا در ارسال به تلگرام!'));
+        });
+    </script>
+
+</body>
+</html>
