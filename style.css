@@ -1,5 +1,5 @@
 /* ------------------------------------------------------ */
-/*    تنظیمات عمومی                                      */
+/*    تنظیمات عمومی - تم هکری                           */
 /* ------------------------------------------------------ */
 @import url('https://cdn.jsdelivr.net/npm/vazirmatn@33.003/variable/font-face.css');
 
@@ -8,50 +8,53 @@
     padding: 0;
     box-sizing: border-box;
     direction: rtl;
-    font-family: 'Vazirmatn', sans-serif;
+    font-family: 'Courier New', monospace; /* تغییر فونت به سبک ترمینال */
     text-align: right;
 }
 
 body {
-    background-color: #ffffff; /* پس‌زمینه سفید */
-    color: #333;
+    background-color: #000; /* پس‌زمینه کاملا مشکی */
+    color: #0f0; /* رنگ نوشته‌ها سبز نئونی */
     font-size: 16px;
     line-height: 1.8;
+    text-shadow: 0 0 5px #0f0, 0 0 10px #0f0; /* نور نئونی برای متن */
 }
 
 /* ------------------------------------------------------ */
-/*    هدر و منوی مینیمال                                */
+/*    هدر و منوی هکری                                   */
 /* ------------------------------------------------------ */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #fff; /* سفید و بدون پس‌زمینه */
-    border-bottom: 1px solid #ddd; /* خط باریک در پایین */
+    background-color: #111; /* مشکی تیره */
+    border-bottom: 1px solid #0f0; /* خط سبز نئونی */
 }
 
 .logo img {
-    width: 35px; /* کوچک‌تر و شیک‌تر */
+    width: 40px;
     height: auto;
+    filter: drop-shadow(0 0 5px #0f0);
 }
 
 nav {
     display: flex;
-    gap: 8px; /* کاهش فاصله بین آیتم‌های منو */
+    gap: 10px;
 }
 
 nav a {
-    color: #333;
+    color: #0f0;
     text-decoration: none;
-    font-size: 15px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: bold;
     padding: 5px 10px;
-    transition: color 0.3s ease;
+    transition: all 0.3s;
 }
 
 nav a:hover {
-    color: #007bff;
+    color: #fff;
+    text-shadow: 0 0 10px #0f0;
 }
 
 /* ------------------------------------------------------ */
@@ -64,78 +67,75 @@ main {
 }
 
 h1, h2 {
-    font-size: 32px;
-    color: #222;
-    margin-bottom: 15px;
+    font-size: 30px;
+    color: #0f0;
+    text-shadow: 0 0 5px #0f0;
+    animation: glitch 1s infinite;
 }
 
 p {
     font-size: 18px;
-    color: #555;
-    margin-bottom: 20px;
+    color: #0f0;
+    text-shadow: 0 0 5px #0f0;
 }
 
 /* ------------------------------------------------------ */
-/*    دکمه‌های مینیمال                                   */
+/*    دکمه‌های هکری                                     */
 /* ------------------------------------------------------ */
 .btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
+    background-color: transparent;
+    color: #0f0;
     text-decoration: none;
+    border: 2px solid #0f0;
     border-radius: 5px;
     font-size: 15px;
-    font-weight: 500;
+    font-weight: bold;
     text-align: center;
-    border: none;
     transition: all 0.3s;
+    text-shadow: 0 0 5px #0f0;
 }
 
 .btn:hover {
-    background-color: #0056b3;
-}
-
-/* دکمه سبز برای واتساپ */
-.btn-key {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #25D366;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 15px;
-    font-weight: 500;
-    text-align: center;
-    transition: all 0.3s;
-}
-
-.btn-key:hover {
-    background-color: #1da851;
+    background-color: #0f0;
+    color: #000;
+    text-shadow: none;
 }
 
 /* ------------------------------------------------------ */
-/*    فوتر مینیمال                                      */
+/*    افکت گلیچ برای متن                                */
+/* ------------------------------------------------------ */
+@keyframes glitch {
+    0% { text-shadow: 0 0 5px #0f0, 2px 2px 5px #0f0; }
+    50% { text-shadow: 0 0 10px #0f0, -2px -2px 5px #0f0; }
+    100% { text-shadow: 0 0 5px #0f0, 2px 2px 5px #0f0; }
+}
+
+/* ------------------------------------------------------ */
+/*    فوتر هکری                                        */
 /* ------------------------------------------------------ */
 footer {
     text-align: center;
     padding: 15px;
-    background-color: #f8f9fa;
-    color: #666;
+    background-color: #111;
+    color: #0f0;
     font-size: 14px;
+    border-top: 1px solid #0f0;
 }
 
 /* ------------------------------------------------------ */
-/*    استایل فرم سفارش                                   */
+/*    استایل فرم سفارش                                 */
 /* ------------------------------------------------------ */
 form {
     max-width: 400px;
     margin: auto;
     padding: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #0f0;
     border-radius: 5px;
-    background: #f9f9f9;
-    text-align: right;
+    background: #111;
+    color: #0f0;
+    text-shadow: 0 0 5px #0f0;
 }
 
 label {
@@ -148,65 +148,63 @@ input, select, button {
     width: 100%;
     padding: 12px;
     margin-top: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #0f0;
     border-radius: 5px;
     font-size: 16px;
+    background: #222;
+    color: #0f0;
 }
 
 /* ------------------------------------------------------ */
-/*    بخش انتخاب محصولات                                */
+/*    دکمه‌های ویژه سفارش                               */
+/* ------------------------------------------------------ */
+button {
+    background-color: transparent;
+    color: #0f0;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 20px;
+    border: 2px solid #0f0;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s;
+    text-shadow: 0 0 5px #0f0;
+}
+
+button:hover {
+    background-color: #0f0;
+    color: #000;
+    text-shadow: none;
+}
+
+/* ------------------------------------------------------ */
+/*    استایل محصولات                                   */
 /* ------------------------------------------------------ */
 .product {
     display: flex;
     align-items: center;
-    gap: 10px; /* فاصله مناسب بین چک‌باکس و نام محصول */
-    border-bottom: 1px solid #ddd;
+    gap: 10px;
+    border-bottom: 1px solid #0f0;
     padding: 10px 0;
 }
 
 .product input {
     width: 20px;
     height: 20px;
+    background: #000;
+    border: 1px solid #0f0;
 }
 
 /* ------------------------------------------------------ */
-/*    تنظیم چینش محصولات                               */
+/*    افکت برای پس‌زمینه                                 */
 /* ------------------------------------------------------ */
-.product {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 10px;
+@keyframes background-glitch {
+    0% { background-color: #000; }
+    50% { background-color: #010101; }
+    100% { background-color: #000; }
 }
 
-/* تنظیم سایز چک‌باکس */
-.product-checkbox {
-    width: 20px;
-    height: 20px;
-}
-
-/* تنظیم فیلد عددی */
-.quantity-input {
-    width: 60px;
-    padding: 5px;
-    font-size: 16px;
-    text-align: center;
-}
-
-/* دکمه ارسال سفارش */
-button {
-    background-color: #007bff;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
-    transition: all 0.3s;
-}
-
-button:hover {
-    background-color: #0056b3;
+body {
+    animation: background-glitch 3s infinite;
 }
