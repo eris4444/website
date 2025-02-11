@@ -255,3 +255,24 @@ button:hover {
         color: #bbb;
     }
 }
+
+/* ------------------------------------------------------ */
+/*    دکمه ثبت نام به صورت دکمه                           */
+/* ------------------------------------------------------ */
+#courses .btn-register {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s;
+    text-align: center;
+    margin-top: 15px;
+}
+
+#courses .btn-register:hover {
+    background-color: #218838;
+}
