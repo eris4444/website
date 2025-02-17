@@ -3,72 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BudgetBuddy - Personal Finance Tracker</title>
+    <title>C Code Playground</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>BudgetBuddy</h1>
-        <nav>
-            <ul>
-                <li><a href="#dashboard">Dashboard</a></li>
-                <li><a href="#transactions">Transactions</a></li>
-                <li><a href="#goals">Savings Goals</a></li>
-            </ul>
-        </nav>
+        <h1>C Code Playground</h1>
     </header>
-
     <main>
-        <section id="dashboard">
-            <h2>Financial Overview</h2>
-            <div id="balance">
-                <h3>Current Balance</h3>
-                <p id="total-balance">$0.00</p>
-            </div>
-            <div id="summary">
-                <div class="summary-item">
-                    <h3>Income</h3>
-                    <p id="total-income">$0.00</p>
-                </div>
-                <div class="summary-item">
-                    <h3>Expenses</h3>
-                    <p id="total-expenses">$0.00</p>
-                </div>
-            </div>
-            <canvas id="expense-chart"></canvas>
-        </section>
+        <section id="code-input">
+            <h2>Enter your C code:</h2>
+            <textarea id="code-area" rows="15" cols="80">
+#include <stdio.h>
 
-        <section id="transactions">
-            <h2>Transactions</h2>
-            <form id="transaction-form">
-                <input type="text" id="transaction-name" placeholder="Transaction Name" required>
-                <input type="number" id="transaction-amount" placeholder="Amount" required>
-                <select id="transaction-type">
-                    <option value="income">Income</option>
-                    <option value="expense">Expense</option>
-                </select>
-                <button type="submit">Add Transaction</button>
-            </form>
-            <ul id="transaction-list"></ul>
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}
+            </textarea>
         </section>
-
-        <section id="goals">
-            <h2>Savings Goals</h2>
-            <form id="goal-form">
-                <input type="text" id="goal-name" placeholder="Goal Name" required>
-                <input type="number" id="goal-amount" placeholder="Target Amount" required>
-                <button type="submit">Add Goal</button>
-            </form>
-            <ul id="goal-list"></ul>
+        <section id="actions">
+            <button id="run-btn">Run Code</button>
+            <button id="download-btn">Download Code</button>
+        </section>
+        <section id="output">
+            <h2>Output:</h2>
+            <pre id="output-area"></pre>
         </section>
     </main>
-
     <footer>
-        <p>&copy; 2023 BudgetBuddy - CS50x Final Project</p>
+        <p>&copy; 2023 C Code Playground - CS50x Final Project</p>
     </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
-

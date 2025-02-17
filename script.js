@@ -1,144 +1,37 @@
-import { Chart } from "@/components/ui/chart"
-// Initialize data structures
-const transactions = JSON.parse(localStorage.getItem("transactions")) || []
-const goals = JSON.parse(localStorage.getItem("goals")) || []
+document.addEventListener("DOMContentLoaded", () => {
+  const codeArea = document.getElementById("code-area")
+  const runBtn = document.getElementById("run-btn")
+  const downloadBtn = document.getElementById("download-btn")
+  const outputArea = document.getElementById("output-area")
 
-// DOM elements
-const totalBalanceEl = document.getElementById("total-balance")
-const totalIncomeEl = document.getElementById("total-income")
-const totalExpensesEl = document.getElementById("total-expenses")
-const transactionFormEl = document.getElementById("transaction-form")
-const transactionListEl = document.getElementById("transaction-list")
-const goalFormEl = document.getElementById("goal-form")
-const goalListEl = document.getElementById("goal-list")
-const expenseChartEl = document.getElementById("expense-chart")
+  runBtn.addEventListener("click", () => {
+    const code = codeArea.value
+    // In a real implementation, you would send this code to a server
+    // to compile and run. For this example, we'll simulate output.
+    outputArea.textContent = "Compiling and running code...\n\n"
 
-// Helper functions
-function updateLocalStorage() {
-  localStorage.setItem("transactions", JSON.stringify(transactions))
-  localStorage.setItem("goals", JSON.stringify(goals))
-}
-
-function calculateTotals() {
-  const totals = transactions.reduce(
-    (acc, transaction) => {
-      if (transaction.type === "income") {
-        acc.income += transaction.amount
-      } else {
-        acc.expenses += transaction.amount
+    setTimeout(() => {
+      if (code.includes("printf")) {
+        const printContent = code.match(/printf\s*\((["'])(.*?)\1/)
+        if (printContent && printContent[2]) {
+          outputArea.textContent += printContent[2] + "\n"
+        }
       }
-      return acc
-    },
-    { income: 0, expenses: 0 },
-  )
-
-  totals.balance = totals.income - totals.expenses
-  return totals
-}
-
-function updateDashboard() {
-  const totals = calculateTotals()
-  totalBalanceEl.textContent = `$${totals.balance.toFixed(2)}`
-  totalIncomeEl.textContent = `$${totals.income.toFixed(2)}`
-  totalExpensesEl.textContent = `$${totals.expenses.toFixed(2)}`
-  updateExpenseChart()
-}
-
-function updateTransactionList() {
-  transactionListEl.innerHTML = ""
-  transactions.forEach((transaction, index) => {
-    const li = document.createElement("li")
-    li.innerHTML = `
-            ${transaction.name} - $${transaction.amount.toFixed(2)} 
-            (${transaction.type})
-            <button onclick="deleteTransaction(${index})">Delete</button>
-        `
-    transactionListEl.appendChild(li)
-  })
-}
-
-function updateGoalList() {
-  goalListEl.innerHTML = ""
-  goals.forEach((goal, index) => {
-    const li = document.createElement("li")
-    li.innerHTML = `
-            ${goal.name} - $${goal.amount.toFixed(2)}
-            <button onclick="deleteGoal(${index})">Delete</button>
-        `
-    goalListEl.appendChild(li)
-  })
-}
-
-function updateExpenseChart() {
-  const expenseData = {}
-  transactions.forEach((transaction) => {
-    if (transaction.type === "expense") {
-      expenseData[transaction.name] = (expenseData[transaction.name] || 0) + transaction.amount
-    }
+      outputArea.textContent += "\nProgram finished with exit code 0"
+    }, 1000)
   })
 
-  new Chart(expenseChartEl, {
-    type: "pie",
-    data: {
-      labels: Object.keys(expenseData),
-      datasets: [
-        {
-          data: Object.values(expenseData),
-          backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0", "#9966FF"],
-        },
-      ],
-    },
-    options: {
-      responsive: true,
-      title: {
-        display: true,
-        text: "Expense Breakdown",
-      },
-    },
+  downloadBtn.addEventListener("click", () => {
+    const code = codeArea.value
+    const blob = new Blob([code], { type: "text/plain" })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement("a")
+    a.href = url
+    a.download = "code.c"
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
+    URL.revokeObjectURL(url)
   })
-}
-
-// Event listeners
-transactionFormEl.addEventListener("submit", (e) => {
-  e.preventDefault()
-  const name = document.getElementById("transaction-name").value
-  const amount = Number.parseFloat(document.getElementById("transaction-amount").value)
-  const type = document.getElementById("transaction-type").value
-
-  transactions.push({ name, amount, type })
-  updateLocalStorage()
-  updateDashboard()
-  updateTransactionList()
-  transactionFormEl.reset()
 })
-
-goalFormEl.addEventListener("submit", (e) => {
-  e.preventDefault()
-  const name = document.getElementById("goal-name").value
-  const amount = Number.parseFloat(document.getElementById("goal-amount").value)
-
-  goals.push({ name, amount })
-  updateLocalStorage()
-  updateGoalList()
-  goalFormEl.reset()
-})
-
-// Delete functions
-function deleteTransaction(index) {
-  transactions.splice(index, 1)
-  updateLocalStorage()
-  updateDashboard()
-  updateTransactionList()
-}
-
-function deleteGoal(index) {
-  goals.splice(index, 1)
-  updateLocalStorage()
-  updateGoalList()
-}
-
-// Initial render
-updateDashboard()
-updateTransactionList()
-updateGoalList()
 
