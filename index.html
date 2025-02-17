@@ -3,41 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C Code Playground</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <title>GitHub Repositories</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>C Code Playground</h1>
-    </header>
-    <main>
-        <section id="code-input">
-            <h2>Enter your C code:</h2>
-            <pre><code class="language-c" id="code-area" contenteditable="true" spellcheck="false">
-#include &lt;stdio.h&gt;
+    <h1>My GitHub Repositories</h1>
+    <input type="text" id="githubUsername" placeholder="Enter GitHub username">
+    <button onclick="fetchRepositories()">Load Repos</button>
+    <ul id="repoList"></ul>
 
-int main() {
-    printf("Hello, World!\n");
-    return 0;
-}
-            </code></pre>
-        </section>
-        <section id="actions">
-            <button id="run-btn">Run Code</button>
-            <button id="download-btn">Download Code</button>
-        </section>
-        <section id="output">
-            <h2>Output:</h2>
-            <pre id="output-area"></pre>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2023 C Code Playground - CS50x Final Project</p>
-    </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-c.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
-
