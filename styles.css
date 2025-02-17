@@ -1,35 +1,52 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --header-bg: #4caf50;
+  --header-text: #ffffff;
+  --button-bg: #4caf50;
+  --button-text: #ffffff;
+  --output-bg: #f8f8f8;
+  --border-color: #dddddd;
+}
+
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  color: #333;
+  color: var(--text-color);
+  background-color: var(--bg-color);
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 header {
-  background-color: #4caf50;
-  color: white;
+  background-color: var(--header-bg);
+  color: var(--header-text);
   text-align: center;
   padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 main {
   margin-top: 20px;
 }
 
-textarea {
+#code-area {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-color);
   border-radius: 4px;
   resize: vertical;
+  min-height: 200px;
 }
 
 button {
-  background-color: #4caf50;
-  color: white;
+  background-color: var(--button-bg);
+  color: var(--button-text);
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
@@ -39,15 +56,15 @@ button {
 }
 
 button:hover {
-  background-color: #45a049;
+  opacity: 0.9;
 }
 
 #output {
   margin-top: 20px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-color);
   border-radius: 4px;
   padding: 10px;
-  background-color: #f8f8f8;
+  background-color: var(--output-bg);
 }
 
 #output-area {
@@ -58,6 +75,26 @@ button:hover {
 footer {
   margin-top: 40px;
   text-align: center;
-  color: #777;
+  color: var(--text-color);
+}
+
+/* Dark theme */
+body.dark-theme {
+  --bg-color: #1e1e1e;
+  --text-color: #d4d4d4;
+  --header-bg: #333333;
+  --header-text: #ffffff;
+  --button-bg: #0e639c;
+  --button-text: #ffffff;
+  --output-bg: #2d2d2d;
+  --border-color: #454545;
+}
+
+body.dark-theme pre[class*="language-"] {
+  background: #2d2d2d;
+}
+
+body.dark-theme code[class*="language-"] {
+  color: #d4d4d4;
 }
 
