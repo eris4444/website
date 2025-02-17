@@ -1,278 +1,120 @@
-/* ------------------------------------------------------ */
-/*    تنظیمات عمومی                                      */
-/* ------------------------------------------------------ */
-@import url('https://cdn.jsdelivr.net/npm/vazirmatn@33.003/variable/font-face.css');
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    direction: rtl;
-    font-family: 'Vazirmatn', sans-serif;
-    text-align: right;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background-color: #f4f4f4; /* پس‌زمینه روشن */
-    color: #333;
-    font-size: 16px;
-    line-height: 1.8;
-    transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-/* ------------------------------------------------------ */
-/*    هدر و منوی مینیمال                                */
-/* ------------------------------------------------------ */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #ffffff; /* پس‌زمینه سفید */
-    border-bottom: 1px solid #ddd; /* خط باریک در پایین */
-    position: sticky;
-    top: 0;
-    z-index: 100;
+  background-color: #4caf50;
+  color: white;
+  padding: 1rem;
+  text-align: center;
 }
 
-.logo img {
-    width: 35px; /* کوچک‌تر و شیک‌تر */
-    height: auto;
+nav ul {
+  list-style-type: none;
 }
 
-nav {
-    display: flex;
-    gap: 10px; /* فاصله بین آیتم‌های منو کاهش داده شده */
+nav ul li {
+  display: inline;
+  margin-right: 20px;
 }
 
-nav a {
-    color: #333;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 500;
-    padding: 5px 10px;
-    transition: all 0.3s ease;
+nav ul li a {
+  color: white;
+  text-decoration: none;
 }
 
-nav a:hover {
-    background-color: #007bff;
-    color: white;
-}
-
-/* تم تمایز دکمه صفحه فعلی */
-nav a.active {
-    background-color: #007bff;
-    color: white;
-}
-
-/* ------------------------------------------------------ */
-/*    بخش اصلی                                          */
-/* ------------------------------------------------------ */
 main {
-    padding: 40px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+  margin-top: 20px;
 }
 
-h1, h2 {
-    font-size: 32px;
-    color: #222;
-    margin-bottom: 15px;
+section {
+  margin-bottom: 40px;
 }
 
-p {
-    font-size: 18px;
-    color: #555;
-    margin-bottom: 20px;
+h1,
+h2,
+h3 {
+  margin-bottom: 10px;
 }
 
-/* ------------------------------------------------------ */
-/*    دکمه‌های مینیمال                                   */
-/* ------------------------------------------------------ */
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 15px;
-    font-weight: 500;
-    text-align: center;
-    border: none;
-    transition: all 0.3s;
+#dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
 
-.btn:hover {
-    background-color: #0056b3;
+#balance,
+#summary {
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 5px;
 }
 
-/* دکمه ثبت نام از طریق ربات */
-.btn-register {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #28a745;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 15px;
-    font-weight: 500;
-    text-align: center;
-    transition: all 0.3s;
-    margin-top: 15px;
+#summary {
+  display: flex;
+  justify-content: space-between;
 }
 
-.btn-register:hover {
-    background-color: #218838;
+.summary-item {
+  text-align: center;
 }
 
-/* ------------------------------------------------------ */
-/*    فوتر مینیمال                                      */
-/* ------------------------------------------------------ */
-footer {
-    text-align: center;
-    padding: 15px;
-    background-color: #f8f9fa;
-    color: #666;
-    font-size: 14px;
-}
-
-/* ------------------------------------------------------ */
-/*    استایل فرم سفارش                                   */
-/* ------------------------------------------------------ */
 form {
-    max-width: 400px;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background: #fff;
-    text-align: right;
+  display: grid;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
-label {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
-}
-
-input, select, button {
-    width: 100%;
-    padding: 12px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-/* ------------------------------------------------------ */
-/*    بخش انتخاب محصولات                                */
-/* ------------------------------------------------------ */
-.product {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border-bottom: 1px solid #ddd;
-    padding: 10px 0;
-}
-
-.product input {
-    width: 20px;
-    height: 20px;
-}
-
-/* ------------------------------------------------------ */
-/*    تنظیم چینش محصولات                               */
-/* ------------------------------------------------------ */
-.product {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-/* تنظیم سایز چک‌باکس */
-.product-checkbox {
-    width: 20px;
-    height: 20px;
-}
-
-/* تنظیم فیلد عددی */
-.quantity-input {
-    width: 60px;
-    padding: 5px;
-    font-size: 16px;
-    text-align: center;
-}
-
-/* دکمه ارسال سفارش */
+input,
+select,
 button {
-    background-color: #007bff;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
-    transition: all 0.3s;
+  padding: 10px;
+  font-size: 16px;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
 }
 
 button:hover {
-    background-color: #0056b3;
+  background-color: #45a049;
 }
 
-/* ------------------------------------------------------ */
-/*    تم دارک مود                                         */
-/* ------------------------------------------------------ */
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #121212;
-        color: #e0e0e0;
-    }
-
-    header {
-        background-color: #1e1e1e;
-        border-bottom: 2px solid #333;
-    }
-
-    nav a {
-        color: #e0e0e0;
-    }
-
-    nav a:hover {
-        background-color: #007bff;
-        color: white;
-    }
-
-    h1, h2, p {
-        color: #e0e0e0;
-    }
-
-    footer {
-        background-color: #1e1e1e;
-        color: #bbb;
-    }
+ul {
+  list-style-type: none;
 }
 
-/* ------------------------------------------------------ */
-/*    دکمه ثبت نام به صورت دکمه                           */
-/* ------------------------------------------------------ */
-#services .btn-register {
-    display: inline-block;
-    padding: 12px 25px;
-    background-color: #28a745;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: 500;
-    transition: all 0.3s;
-    text-align: center;
-    margin-top: 15px;
+li {
+  background-color: #f4f4f4;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
 }
 
-#services .btn-register:hover {
-    background-color: #218838;
+footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #f4f4f4;
 }
+
+@media (max-width: 768px) {
+  #dashboard {
+    grid-template-columns: 1fr;
+  }
+}
+

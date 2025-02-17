@@ -1,39 +1,74 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>خانه</title>
-    <link rel="stylesheet" href="style.css">
+    <title>BudgetBuddy - Personal Finance Tracker</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header>
+        <h1>BudgetBuddy</h1>
+        <nav>
+            <ul>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#transactions">Transactions</a></li>
+                <li><a href="#goals">Savings Goals</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<header>
-    <div class="logo">
-        <img src="https://eris4444.github.io/website/assets/IMG_5328.jpeg" alt="Logo">
-    </div>
-    <nav>
-        <a href="index.html" class="active">خانه</a>
-        <a href="about.html">درباره ما</a>
-        <a href="services.html">دوره‌ها</a>
-        <a href="gallery.html">گالری</a>
-        <a href="contact.html">تماس با ما</a>
-        <a href="order.html">نوبت گیری</a>
-    </nav>
-</header>
+    <main>
+        <section id="dashboard">
+            <h2>Financial Overview</h2>
+            <div id="balance">
+                <h3>Current Balance</h3>
+                <p id="total-balance">$0.00</p>
+            </div>
+            <div id="summary">
+                <div class="summary-item">
+                    <h3>Income</h3>
+                    <p id="total-income">$0.00</p>
+                </div>
+                <div class="summary-item">
+                    <h3>Expenses</h3>
+                    <p id="total-expenses">$0.00</p>
+                </div>
+            </div>
+            <canvas id="expense-chart"></canvas>
+        </section>
 
-<main class="container">
-    <h1>به سایت ما خوش آمدید!</h1>
-    <p>این سایت به شما اطلاعاتی در مورد دوره‌ها، گالری، و اطلاعات تماس ما ارائه می‌دهد.</p>
-    <h1>موضوع ۱</h1>
-    <p>توضیحات ۱</p>
-    <img src="https://eris4444.github.io/website/assets/IMG_5328.jpeg" alt="توضیح" width="100">
-    <img src="https://eris4444.github.io/website/assets/IMG_5328.jpeg" alt="توضیح" width="100">
-</main>
+        <section id="transactions">
+            <h2>Transactions</h2>
+            <form id="transaction-form">
+                <input type="text" id="transaction-name" placeholder="Transaction Name" required>
+                <input type="number" id="transaction-amount" placeholder="Amount" required>
+                <select id="transaction-type">
+                    <option value="income">Income</option>
+                    <option value="expense">Expense</option>
+                </select>
+                <button type="submit">Add Transaction</button>
+            </form>
+            <ul id="transaction-list"></ul>
+        </section>
 
-<footer>
-    <p>&copy; 2025 تمامی حقوق محفوظ است</p>
-</footer>
+        <section id="goals">
+            <h2>Savings Goals</h2>
+            <form id="goal-form">
+                <input type="text" id="goal-name" placeholder="Goal Name" required>
+                <input type="number" id="goal-amount" placeholder="Target Amount" required>
+                <button type="submit">Add Goal</button>
+            </form>
+            <ul id="goal-list"></ul>
+        </section>
+    </main>
 
+    <footer>
+        <p>&copy; 2023 BudgetBuddy - CS50x Final Project</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
+
