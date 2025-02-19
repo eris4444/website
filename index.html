@@ -1,47 +1,69 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شبیه‌ساز مدار الکترونیکی</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; direction: rtl; }
-        #circuit { width: 600px; height: 300px; border: 2px dashed #000; margin: auto; position: relative; }
-        .component { width: 50px; height: 50px; border: 1px solid black; text-align: center; line-height: 50px; cursor: grab; position: absolute; }
-    </style>
+    <title>Circuit Simulator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>شبیه‌ساز مدار الکترونیکی</h1>
-    <p>قطعات را بکشید و درون مدار قرار دهید.</p>
-    
-    <div id="components">
-        <div class="component" draggable="true" ondragstart="drag(event)" id="battery">🔋 باتری</div>
-        <div class="component" draggable="true" ondragstart="drag(event)" id="resistor">🌀 مقاومت</div>
-        <div class="component" draggable="true" ondragstart="drag(event)" id="led">💡 LED</div>
+    <div class="app">
+        <header>
+            <h1>Circuit Simulator</h1>
+            <button id="theme-toggle">🌙</button>
+        </header>
+        
+        <div class="workspace">
+            <div class="components-panel">
+                <h2>Components</h2>
+                <div class="component-list">
+                    <div class="component" draggable="true" data-type="resistor">
+                        <svg viewBox="0 0 50 20" class="component-icon">
+                            <path d="M5,10 h10 l2,-3 l4,6 l4,-6 l4,6 l4,-6 l2,3 h10" stroke="currentColor" fill="none"/>
+                        </svg>
+                        <span>Resistor</span>
+                    </div>
+                    <div class="component" draggable="true" data-type="capacitor">
+                        <svg viewBox="0 0 50 20" class="component-icon">
+                            <path d="M5,10 h20 m0,-8 v16 m0,-8 h20" stroke="currentColor" fill="none"/>
+                        </svg>
+                        <span>Capacitor</span>
+                    </div>
+                    <div class="component" draggable="true" data-type="inductor">
+                        <svg viewBox="0 0 50 20" class="component-icon">
+                            <path d="M5,10 h5 c5,-10 10,0 15,-10 c5,-10 10,0 15,-10 h5" stroke="currentColor" fill="none"/>
+                        </svg>
+                        <span>Inductor</span>
+                    </div>
+                    <div class="component" draggable="true" data-type="battery">
+                        <svg viewBox="0 0 50 20" class="component-icon">
+                            <path d="M5,10 h20 m0,-8 v16 m5,-12 v8 m0,-4 h15" stroke="currentColor" fill="none"/>
+                        </svg>
+                        <span>Battery</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="circuit-board">
+                <canvas id="circuit-canvas"></canvas>
+            </div>
+            
+            <div class="properties-panel">
+                <h2>Properties</h2>
+                <div id="component-properties">
+                    <p>Select a component to edit properties</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="toolbar">
+            <button id="run-simulation">▶ Run Simulation</button>
+            <button id="reset">↺ Reset</button>
+            <button id="save">💾 Save</button>
+            <button id="load">📂 Load</button>
+        </div>
     </div>
-
-    <div id="circuit" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <p>مدار را اینجا بسازید</p>
-    </div>
-
-    <script>
-        function allowDrop(event) {
-            event.preventDefault();
-        }
-
-        function drag(event) {
-            event.dataTransfer.setData("text", event.target.id);
-        }
-
-        function drop(event) {
-            event.preventDefault();
-            let componentId = event.dataTransfer.getData("text");
-            let newComponent = document.getElementById(componentId).cloneNode(true);
-            newComponent.style.position = "absolute";
-            newComponent.style.left = event.clientX - 25 + "px";
-            newComponent.style.top = event.clientY - 25 + "px";
-            document.getElementById("circuit").appendChild(newComponent);
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
+
