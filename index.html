@@ -1,31 +1,68 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>رویداد آموزش هک وای‌فای</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>آموزش هک وای فای | دوره تخصصی</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>رویداد آموزش هک وای‌فای</h1>
-        <p>تا شروع رویداد:</p>
-        <div id="countdown"></div>
-    </header>
+    <div class="container">
+        <header class="glitch-header">
+            <h1 class="glitch" data-text="آموزش هک وای فای">آموزش هک وای فای</h1>
+            <p class="subtitle">دوره جامع و تخصصی</p>
+        </header>
 
-    <section class="about-event">
-        <h2>درباره رویداد</h2>
-        <p>در این رویداد، شما با روش‌های امنیتی و هک وای‌فای آشنا خواهید شد. این رویداد در تاریخ ۵ اسفند ۱۴۰۳ ساعت ۲۱:۰۰ برگزار می‌شود.</p>
-    </section>
+        <div class="countdown-container">
+            <h2>تا شروع دوره:</h2>
+            <div id="countdown">
+                <div class="time-block">
+                    <span id="days">00</span>
+                    <span class="label">روز</span>
+                </div>
+                <div class="time-block">
+                    <span id="hours">00</span>
+                    <span class="label">ساعت</span>
+                </div>
+                <div class="time-block">
+                    <span id="minutes">00</span>
+                    <span class="label">دقیقه</span>
+                </div>
+                <div class="time-block">
+                    <span id="seconds">00</span>
+                    <span class="label">ثانیه</span>
+                </div>
+            </div>
+        </div>
 
-    <section class="register-link">
-        <a href="register.html">ثبت نام در رویداد</a>
-    </section>
+        <div class="features">
+            <div class="feature-card">
+                <div class="icon">🔒</div>
+                <h3>امنیت شبکه</h3>
+                <p>آموزش جامع پروتکل‌های امنیتی</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">📡</div>
+                <h3>تست نفوذ</h3>
+                <p>تکنیک‌های پیشرفته تست نفوذ</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">💻</div>
+                <h3>آموزش عملی</h3>
+                <p>تمرین‌های عملی و کاربردی</p>
+            </div>
+        </div>
 
-    <footer>
-        <p>© ۱۴۰۳ رویداد آموزش هک وای‌فای</p>
-    </footer>
+        <div class="price-section">
+            <h2>هزینه دوره</h2>
+            <div class="price">
+                <span class="amount">300,000</span>
+                <span class="currency">تومان</span>
+            </div>
+        </div>
 
-    <script src="scripts.js"></script>
+        <a href="register.html" class="register-btn">ثبت نام در دوره</a>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
