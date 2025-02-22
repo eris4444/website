@@ -1,5 +1,5 @@
 // Set the target date (5 Esfand 1403 at 21:00)
-const targetDate = new Date('2025-02-24T21:00:00');
+const targetDate = new Date('2025-02-23T21:00:00');
 
 function updateCountdown() {
     const currentDate = new Date();
