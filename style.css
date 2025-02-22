@@ -253,3 +253,29 @@ body {
         font-size: 0.7rem;
     }
 }
+
+/* Message Styles */
+.message {
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.message.success {
+    background-color: rgba(0, 255, 0, 0.1);
+    color: #00ff00;
+}
+
+.message.error {
+    background-color: rgba(255, 0, 0, 0.1);
+    color: #ff0000;
+}
+
+/* Disabled Button Style */
+.submit-btn:disabled {
+    background: #666;
+    cursor: not-allowed;
+    transform: none;
+}
