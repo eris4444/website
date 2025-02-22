@@ -23,13 +23,15 @@ document.getElementById('registerForm').addEventListener('submit', async functio
 📱 شماره تماس: ${formData.phone}
     `;
 
+    // حذف پیام قبلی اگر وجود داشته باشد
+    const oldMessage = document.querySelector('.message');
+    if (oldMessage) {
+        oldMessage.remove();
+    }
+
     // ایجاد المان برای نمایش پیام‌ها
     const messageDiv = document.createElement('div');
-    messageDiv.style.padding = '1rem';
-    messageDiv.style.marginTop = '1rem';
-    messageDiv.style.borderRadius = '5px';
-    messageDiv.style.textAlign = 'center';
-    messageDiv.style.fontWeight = 'bold';
+    messageDiv.className = 'message';
 
     try {
         const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
@@ -48,8 +50,7 @@ document.getElementById('registerForm').addEventListener('submit', async functio
 
         if (response.ok && data.ok) {
             // موفقیت در ثبت نام
-            messageDiv.style.backgroundColor = 'rgba(0, 255, 0, 0.1)';
-            messageDiv.style.color = '#00ff00';
+            messageDiv.classList.add('success');
             messageDiv.textContent = 'ثبت نام شما با موفقیت انجام شد. به زودی با شما تماس خواهیم گرفت.';
             
             // پاک کردن فرم
@@ -64,8 +65,7 @@ document.getElementById('registerForm').addEventListener('submit', async functio
         }
     } catch (error) {
         // خطا در ثبت نام
-        messageDiv.style.backgroundColor = 'rgba(255, 0, 0, 0.1)';
-        messageDiv.style.color = '#ff0000';
+        messageDiv.classList.add('error');
         messageDiv.textContent = 'متأسفانه مشکلی در ثبت نام پیش آمده. لطفاً دوباره تلاش کنید.';
         console.error('Error:', error);
         
