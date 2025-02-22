@@ -1,35 +1,38 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ثبت نام در رویداد</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>ثبت نام | آموزش هک وای فای</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>ثبت نام در رویداد آموزش هک وای‌فای</h1>
-    </header>
+    <div class="container">
+        <header>
+            <h1 class="glitch" data-text="ثبت نام در دوره">ثبت نام در دوره</h1>
+        </header>
 
-    <section class="registration-form">
-        <form id="registrationForm">
-            <label for="fullName">نام کامل:</label>
-            <input type="text" id="fullName" name="fullName" required>
+        <form id="registerForm" class="register-form">
+            <div class="form-group">
+                <label for="fullname">نام و نام خانوادگی</label>
+                <input type="text" id="fullname" name="fullname" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">ایمیل</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">شماره تماس</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
 
-            <label for="phone">شماره تماس:</label>
-            <input type="tel" id="phone" name="phone" required>
-
-            <label for="email">ایمیل:</label>
-            <input type="email" id="email" name="email" required>
-
-            <button type="submit">ثبت نام</button>
+            <button type="submit" class="submit-btn">ثبت نام و پرداخت</button>
         </form>
-    </section>
 
-    <footer>
-        <p>© ۱۴۰۳ رویداد آموزش هک وای‌فای</p>
-    </footer>
-
-    <script src="scripts.js"></script>
+        <a href="index.html" class="back-btn">بازگشت به صفحه اصلی</a>
+    </div>
+    <script src="register.js"></script>
 </body>
 </html>
