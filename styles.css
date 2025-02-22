@@ -1,82 +1,255 @@
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    direction: rtl;
-    background-color: #1e1e2f;
-    color: #fff;
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
+
+:root {
+    --primary-color: #00ff00;
+    --secondary-color: #0a0a0a;
+    --accent-color: #ff00ff;
+    --text-color: #ffffff;
+}
+
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-header {
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Glitch Effect */
+.glitch {
+    position: relative;
+    font-size: 4rem;
+    font-weight: bold;
     text-align: center;
-    padding: 20px;
-    background-color: #2a2a40;
+    text-transform: uppercase;
+    text-shadow: 0.05em 0 0 var(--accent-color),
+                -0.05em -0.05em 0 var(--primary-color),
+                -0.05em 0.05em 0 #ff0000;
+    animation: glitch 1s infinite;
 }
 
-h1 {
-    font-size: 2.5rem;
+@keyframes glitch {
+    0% {
+        text-shadow: 0.05em 0 0 var(--accent-color),
+                    -0.05em -0.05em 0 var(--primary-color),
+                    -0.05em 0.05em 0 #ff0000;
+    }
+    14% {
+        text-shadow: 0.05em 0 0 var(--accent-color),
+                    -0.05em -0.05em 0 var(--primary-color),
+                    -0.05em 0.05em 0 #ff0000;
+    }
+    15% {
+        text-shadow: -0.05em -0.025em 0 var(--accent-color),
+                    0.025em 0.025em 0 var(--primary-color),
+                    -0.05em -0.05em 0 #ff0000;
+    }
+    49% {
+        text-shadow: -0.05em -0.025em 0 var(--accent-color),
+                    0.025em 0.025em 0 var(--primary-color),
+                    -0.05em -0.05em 0 #ff0000;
+    }
+    50% {
+        text-shadow: 0.025em 0.05em 0 var(--accent-color),
+                    0.05em 0 0 var(--primary-color),
+                    0 -0.05em 0 #ff0000;
+    }
+    99% {
+        text-shadow: 0.025em 0.05em 0 var(--accent-color),
+                    0.05em 0 0 var(--primary-color),
+                    0 -0.05em 0 #ff0000;
+    }
+    100% {
+        text-shadow: -0.025em 0 0 var(--accent-color),
+                    -0.025em -0.025em 0 var(--primary-color),
+                    -0.025em -0.05em 0 #ff0000;
+    }
+}
+
+/* Countdown Styles */
+.countdown-container {
+    text-align: center;
+    margin: 3rem 0;
+    padding: 2rem;
+    background: rgba(0, 255, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
 }
 
 #countdown {
-    font-size: 2rem;
-    margin: 20px 0;
-    color: #ff4081;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
 }
 
-.about-event, .register-link {
-    padding: 20px;
+.time-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.time-block span {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.time-block .label {
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+/* Feature Cards */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 10px;
     text-align: center;
+    transition: transform 0.3s ease;
 }
 
-.about-event p {
-    font-size: 1.2rem;
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
 }
 
-.register-link a {
+.feature-card .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* Form Styles */
+.register-form {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid var(--primary-color);
+    background: rgba(0, 0, 0, 0.3);
+    color: var(--text-color);
+    border-radius: 5px;
+    font-family: 'Vazirmatn', sans-serif;
+}
+
+/* Buttons */
+.register-btn, .submit-btn, .back-btn {
     display: inline-block;
-    padding: 10px 20px;
-    background-color: #ff4081;
-    color: #fff;
+    padding: 1rem 2rem;
+    background: var(--primary-color);
+    color: var(--secondary-color);
     text-decoration: none;
     border-radius: 5px;
-    font-size: 1.2rem;
-}
-
-.registration-form {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.registration-form label {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 1.1rem;
-}
-
-.registration-form input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-.registration-form button {
-    width: 100%;
-    padding: 10px;
-    background-color: #ff4081;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    cursor: pointer;
-}
-
-footer {
+    font-weight: bold;
     text-align: center;
-    padding: 20px;
-    background-color: #2a2a40;
-    margin-top: 20px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-family: 'Vazirmatn', sans-serif;
+}
+
+.register-btn:hover, .submit-btn:hover, .back-btn:hover {
+    background: var(--accent-color);
+    transform: scale(1.05);
+}
+
+/* Price Section */
+.price-section {
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.price {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin: 1rem 0;
+}
+
+/* 404 Page */
+.error-page {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.error-content {
+    animation: float 6s ease-in-out infinite;
+}
+
+.ascii-art {
+    font-family: monospace;
+    white-space: pre;
+    margin: 2rem 0;
+    color: var(--primary-color);
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .glitch {
+        font-size: 2.5rem;
+    }
+
+    #countdown {
+        gap: 1rem;
+    }
+
+    .time-block span {
+        font-size: 1.8rem;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .ascii-art {
+        font-size: 0.7rem;
+    }
 }
