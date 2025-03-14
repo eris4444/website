@@ -501,7 +501,10 @@
             const copyAllButton = document.querySelector('.copy-all');
             copyAllButton.addEventListener('click', function() {
                 const commands = [
+                    'apt install unzip',
                     'git clone https://github.com/eris4444/erissms',
+                    'cd erissms',
+                    'unzip erissms.zip',
                     'cd erissms',
                     'pip install -r requirements.txt',
                     'python3 main.py'
