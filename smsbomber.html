@@ -27,6 +27,8 @@
             --theme-toggle-circle: #ffffff;
             --footer-bg: #f5f7fa;
             --footer-text: #666666;
+            --example-bg: #f9f9f9;
+            --example-border: #e0e0e0;
         }
 
         /* Dark theme */
@@ -51,6 +53,8 @@
             --theme-toggle-circle: #e94560;
             --footer-bg: #16213e;
             --footer-text: #b8b8b8;
+            --example-bg: #1a1a2e;
+            --example-border: #2a2a4a;
         }
 
         /* Reset and base styles */
@@ -283,16 +287,39 @@
             background-color: rgba(255, 255, 255, 0.2);
         }
 
-        /* Additional description below terminal */
-        .terminal-description {
-            margin-top: 1rem;
-            padding: 1rem;
-            background-color: var(--card-bg);
+        /* Example usage section */
+        .example-usage {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background-color: var(--example-bg);
+            border: 1px solid var(--example-border);
             border-radius: 6px;
             color: var(--text-secondary);
             font-size: 0.9rem;
             line-height: 1.5;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .example-usage h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .example-usage code {
+            display: block;
+            background-color: var(--terminal-bg);
+            color: var(--terminal-text);
+            padding: 0.5rem;
+            border-radius: 4px;
+            margin: 0.5rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+
+        .example-usage p {
+            margin: 0.5rem 0;
         }
 
         /* Footer styles */
@@ -424,9 +451,9 @@
                 padding: 0.1rem 0.3rem;
             }
 
-            .terminal-description {
+            .example-usage {
                 font-size: 0.8rem;
-                padding: 0.8rem;
+                padding: 1rem;
             }
 
             footer {
@@ -440,6 +467,7 @@
         <div class="card-header">
             <h1 class="card-title">Download Erissms bomber source</h1>
             <p class="card-description">‌Download ZIP File from github repository</p>
+             <p>&copy; 2025 - The creator is not responsible for any misuse of this tool; use it at your own risk.</p>
             <div class="theme-toggle" id="themeToggle">
                 <div class="theme-icons">
                     <span>☀️</span>
@@ -505,20 +533,18 @@
                         <span class="command-text">python3 main.py</span>
                         <button class="copy-button" data-command="python3 main.py">Copy</button>
                     </div>
-                    <div class="command">
-                        <span class="prompt">$</span>
-                        <span class="command-text"><h1>Example usage:</h1>
-                        <p>python3 main.py 09xxxxxxxxx -c 3</p>
-                        <p>use " python3 main.py " for more help</p></span>
-                    </div>
                 </div>
                 <button class="copy-all">Copy All</button>
             </div>
 
-            <!-- Additional description below terminal -->
-            <div class="terminal-description">
-                <p><strong>Note:</strong> This tool is intended for educational purposes only. Ensure you have proper authorization before using it on any phone number. Misuse of this tool may result in legal consequences. The creator is not responsible for any misuse of this tool; use it at your own risk.</p>
-            
+            <!-- Example usage section -->
+            <div class="example-usage">
+                <h3>Example Usage</h3>
+                <p>To use the SMS bomber, run the following command:</p>
+                <code>python3 main.py 09xxxxxxxxx -c 3</code>
+                <p>Replace <code>09xxxxxxxxx</code> with the target phone number and <code>-c 3</code> with the number of SMS bursts.</p>
+                <p>For more options, run:</p>
+                <code>python3 main.py --help</code>
             </div>
         </div>
     </div>
