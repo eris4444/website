@@ -25,6 +25,8 @@
             --icon-color: #333333;
             --theme-toggle-bg: #e4e8f0;
             --theme-toggle-circle: #ffffff;
+            --footer-bg: #f5f7fa;
+            --footer-text: #666666;
         }
 
         /* Dark theme */
@@ -47,6 +49,8 @@
             --icon-color: #e7e7e7;
             --theme-toggle-bg: #16213e;
             --theme-toggle-circle: #e94560;
+            --footer-bg: #16213e;
+            --footer-text: #b8b8b8;
         }
 
         /* Reset and base styles */
@@ -60,6 +64,7 @@
         body {
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             background: linear-gradient(135deg, var(--bg-gradient-from) 0%, var(--bg-gradient-to) 100%);
@@ -77,6 +82,7 @@
             overflow: hidden;
             transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
             position: relative;
+            margin-bottom: 2rem;
         }
 
         .card:hover {
@@ -277,6 +283,41 @@
             background-color: rgba(255, 255, 255, 0.2);
         }
 
+        /* Additional description below terminal */
+        .terminal-description {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: var(--card-bg);
+            border-radius: 6px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer styles */
+        footer {
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            padding: 1rem;
+            background-color: var(--footer-bg);
+            color: var(--footer-text);
+            border-radius: 6px;
+            margin-top: 2rem;
+            font-size: 0.8rem;
+        }
+
+        footer a {
+            color: var(--button-bg);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--button-hover);
+        }
+
         /* Theme toggle */
         .theme-toggle {
             position: absolute;
@@ -332,15 +373,6 @@
             margin-right: 0.5rem;
         }
 
-        /* Glow effect for dark theme */
-        .dark-theme .card {
-            box-shadow: 0 10px 25px rgba(233, 69, 96, 0.2);
-        }
-
-        .dark-theme .download-button {
-            box-shadow: 0 5px 15px rgba(233, 69, 96, 0.3);
-        }
-
         /* Responsive adjustments */
         @media (max-width: 480px) {
             .card {
@@ -391,6 +423,15 @@
                 font-size: 0.6rem;
                 padding: 0.1rem 0.3rem;
             }
+
+            .terminal-description {
+                font-size: 0.8rem;
+                padding: 0.8rem;
+            }
+
+            footer {
+                font-size: 0.7rem;
+            }
         }
     </style>
 </head>
@@ -410,7 +451,6 @@
         </div>
         <div class="card-content">
             <div class="logo-container">
-                <!-- اینجا لینک تصویر خود را قرار دهید -->
                 <img src="https://raw.githubusercontent.com/eris4444/erissms/main/IMG_6363.jpeg" alt="Logo">
             </div>
         </div>
@@ -475,9 +515,19 @@
                 </div>
                 <button class="copy-all">Copy All</button>
             </div>
+
+            <!-- Additional description below terminal -->
+            <div class="terminal-description">
+                <p><strong>Note:</strong> This tool is intended for educational purposes only. Ensure you have proper authorization before using it on any phone number. Misuse of this tool may result in legal consequences.</p>
+            </div>
         </div>
-    </div>             
- 
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Created with ❤️ by <a href="https://github.com/eris4444" target="_blank">Eris</a>. | &copy; 2025 All rights reserved.</p>
+    </footer>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const downloadBtn = document.getElementById('downloadBtn');
@@ -548,7 +598,7 @@
             const copyAllButton = document.querySelector('.copy-all');
             copyAllButton.addEventListener('click', function() {
                 const commands = [
-                    'apt install unzip',
+                    'sudo apt install unzip',
                     'git clone https://github.com/eris4444/erissms',
                     'cd erissms',
                     'unzip erissms.zip',
